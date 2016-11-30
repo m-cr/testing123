@@ -1,0 +1,19 @@
+<div class="container">
+  <h2>The Code</h2>
+  <div class="well">
+    <ui-codemirror ui-codemirror-opts="codeEditorOptions" ng-model="code"></ui-codemirror>
+  </div>
+  <h2>Write tests here:</h2>
+  <div class="well">
+    <ui-codemirror ui-codemirror-opts="testEditorOptions" ng-model="testCode"></ui-codemirror>
+    <br clear="all">
+  </div>
+  <input class="btn btn-primary" type="submit" ng-click="submit(code, testCode)"></input>
+  <br>
+  <h2>Output:</h2>
+  <div class = "well">
+    <p ng-repeat='piece in response track by $index'>{{piece}}</p>
+    <!-- {{response}} -->
+  </div>
+  <ui-view></ui-view>
+</div>
