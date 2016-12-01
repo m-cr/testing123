@@ -17,7 +17,16 @@ body {
 #main {
   padding-top: 60px;
   margin: 0 auto;
+  overflow: auto;
+  padding-bottom: 180px;
 }
+
+#footer {
+  position: relative;
+  margin-top: -180px; /* negative value of footer height */
+  height: 180px;
+  clear: both;
+} 
 
 @import 'directives/main';
 @import 'home/main';
