@@ -4,6 +4,7 @@ var router = require('express').Router(); // eslint-disable-line new-cap
 module.exports = router;
 
 router.use('/members', require('./members'));
+router.use('/users', require('./users'));
 
 router.post('/submit', function(req, res, next){
 	//create file
