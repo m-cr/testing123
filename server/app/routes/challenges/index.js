@@ -1,6 +1,6 @@
 var router = require('express').Router();
 var Challenge = require('../../../db/models/challenge');
-var User = require('../../../db/models/User');
+var User = require('../../../db/models/user');
 
 module.exports = router;
 
