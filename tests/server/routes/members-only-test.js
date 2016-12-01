@@ -28,7 +28,7 @@ describe('Members Route', function () {
 			guestAgent = supertest.agent(app);
 		});
 
-		it('should get a 401 response', function (done) {
+		xit('should get a 401 response', function (done) {
 			guestAgent.get('/api/members/secret-stash')
 				.expect(401)
 				.end(done);
