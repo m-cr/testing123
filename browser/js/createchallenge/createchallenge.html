@@ -1,0 +1,25 @@
+<div class='container'>
+
+	<h1 align="center">Create a Challenge</h1>
+	<hr>
+
+	<h3>Code to be tested:</h3>
+		<div class="well">
+		  <ui-codemirror ui-codemirror-opts="codeEditorOptions" ng-model="code"></ui-codemirror>
+		</div>
+
+	<h3>Start Test Code:</h3>
+		<div class="well">
+		  <ui-codemirror ui-codemirror-opts="testEditorOptions" ng-model="testCode"></ui-codemirror>
+		</div>
+
+	<h3>Solution:</h3>
+		<div class="well">
+		  <ui-codemirror ui-codemirror-opts="testEditorOptions" ng-model="solution"></ui-codemirror>
+		</div>
+
+	<input class="btn btn-primary" value='Submit Your Challenge' type="submit" ng-click="submit(code, testCode)"></input>
+	<br><br>
+	
+</div>
+

@@ -1,6 +1,5 @@
 app.config(function ($stateProvider) {
 
-    // Register our *about* state.
     $stateProvider.state('challenges', {
         url: '/challenges',
         controller: 'ChallengesController',
