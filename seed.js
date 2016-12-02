@@ -62,6 +62,7 @@ var seedChallenges = function () {
           });\n
           });`,
         difficulty: 'easy',
+        description: 'our simplest test',
         authorId: 1
       }
     ];
