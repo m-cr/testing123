@@ -19,6 +19,10 @@ module.exports = db.define('challenge', {
   },
   difficulty: {
     type: Sequelize.STRING
+  },
+  description: {
+    type: Sequelize.TEXT,
+    allowNull: false
   }
 
 });

@@ -13,7 +13,8 @@ router.post('/', function(req, res, next){
 		startCode: newChallenge.code,
 		testCode: newChallenge.testCode,
 		solution: newChallenge.solution,
-		difficulty: newChallenge.difficulty
+		difficulty: newChallenge.difficulty,
+		description: newChallenge.description
 	})
 	.then(function(challenge){
 		// console.log(challenge);
@@ -25,12 +26,9 @@ router.post('/', function(req, res, next){
 
 router.get('/', function(req, res, next){
 	
-	Challenge.findAll(
-	//TODO: figure out this include
-	// {
-	// 	include: [User, {as: 'author'}]
-	// }
-	)
+	Challenge.findAll({
+		include: [{model: User, as: 'author'}]
+	})
 	.then(function(challenges){
 		console.log(challenges);
 		res.send(challenges);
@@ -44,9 +42,8 @@ router.get('/:id', function(req, res, next){
 	Challenge.findOne({
 		where: {
 			id: req.params.id
-		}
-		//TODO: same issue with include
-		// include: [User, {as: 'author'}]
+		},
+	    include: [{model: User, as: 'author'}]
 	})
 	.then(function(challenge){
 		res.send(challenge);
