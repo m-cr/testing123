@@ -5,11 +5,11 @@
 
 	<ul class="list-group">
 		<li style="margin: 10px" class="list-group-item" ng-repeat="challenge in challenges">
-			<h3>{{challenge.title}}</h3>
+			<h3><a ui-sref="individualChallenge({id: challenge.id})">{{challenge.title}}</a></h3>
 			<p>Created by <strong>{{challenge.author.name}}</strong></p>
 			<p>Difficulty: <strong>{{challenge.difficulty}}</strong></p>
 			<p><strong>Description:</strong> {{challenge.description}}</p>
-			<button class="btn btn-default" ui-sref="individualChallenge({id: challenge.id})">Try This Challenge!</button>
+			<button class="btn btn-primary" ui-sref="individualChallenge({id: challenge.id})">Try This Challenge!</button>
 		</li>
 	</ul>
 

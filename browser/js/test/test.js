@@ -40,5 +40,5 @@ app.controller('TestCtrl', function($scope, $http){
 	};
 
 	$scope.code = "function foo(){\n  return 'bar';\n}"
-	$scope.testCode = "describe('foo', function(){\n  it ('should return bar', function(done){\n    expect(foo()).to.equal('bar');\n    done();\n  });\n});";
+	$scope.testCode = "describe('foo', function(){\n  it ('should return bar', function(){\n    expect(foo()).to.equal('bar');\n  });\n});";
 });

@@ -4,8 +4,7 @@ function foo(){
   return 'bar';
 }
 describe('foo', function(){
-  it ('should return bar', function(done){
+  it ('should return bar', function(){
     expect(foo()).to.equal('bar');
-    done();
   });
 });
