@@ -56,7 +56,7 @@ router.get('/:id', (req, res, next) => {
 
 });
 
-router.get('/:id/challenges', (req, res, next) =>{
+router.get('/:id/challenges', (req, res, next) => {
   Challenge.findAll({
     where: {
       authorId: req.params.id

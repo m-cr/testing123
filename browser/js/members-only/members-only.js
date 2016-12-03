@@ -14,7 +14,7 @@ app.config(function ($stateProvider) {
 });
 
 app.controller('MembersOnlyCtrl', function($scope, Members, Challenge){
-    
+
     Members.getUser()
         .then(function(member){
             // console.log(member);
@@ -33,7 +33,7 @@ app.controller('MembersOnlyCtrl', function($scope, Members, Challenge){
 app.factory('Members', function($http, Session){
 
     var Members = {};
-    var Member = {};
+    // var Member = {};
 
     Members.getUser = function(){
         console.log(Session.user.id);
