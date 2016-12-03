@@ -1,4 +1,4 @@
-app.factory('Challenge', function($http, Session){
+app.factory('Challenge', function($http, Session, $state){
 
 	var Challenge = {};
 
@@ -8,8 +8,10 @@ app.factory('Challenge', function($http, Session){
 	Challenge.create = function(newChallenge){
 		console.log('factory function');
 		return $http.post('/api/challenges', newChallenge)
-			.then(function(){
+			.then(function(response){
 				console.log('challenge created');
+				var createdChallenge = response.data;
+				$state.go("created", {id: createdChallenge.id});
 			});
 	};
 
