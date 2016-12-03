@@ -1,0 +1,16 @@
+#created {
+
+  margin: 0 auto;
+  width: 90%;
+  @include clearfix;
+
+  p {
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 22px;
+    font-weight: 300;
+    float: left;
+  }
+
+}
