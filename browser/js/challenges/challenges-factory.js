@@ -16,10 +16,10 @@ app.factory('Challenge', function($http, Session){
 	Challenge.findAll = function(){
 		return $http.get('/api/challenges')
 		.then(function(response){
-			console.log('challenges grabbed');
-			console.log(response.data);
+			// console.log('challenges grabbed');
+			// console.log(response.data);
 			angular.copy(response.data, challenges);
-			console.log(challenges);
+			// console.log(challenges);
 			return challenges;
 		});
 	};
