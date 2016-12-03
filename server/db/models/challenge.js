@@ -21,6 +21,12 @@ module.exports = db.define('challenge', {
     allowNull: false
   },
   difficulty: {
+    type: Sequelize.ENUM,
+    values: ['Beginner', 'Intermediate', 'Advanced', 'Unknown'],
+    defaultValue: 'Unknown',
+    allowNull: false
+  },
+  title: {
     type: Sequelize.STRING,
     allowNull: false
   },

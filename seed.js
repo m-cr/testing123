@@ -23,6 +23,7 @@ var User = db.model('user');
 var Challenge = db.model('challenge');
 var Trophy = db.model('trophy');
 var Promise = require('sequelize').Promise;
+var seededChallenges = require('./seededChallenges');
 
 var seedUsers = function () {
 
@@ -71,29 +72,7 @@ var seedTrophies = function(){
 
 var seedChallenges = function () {
 
-    var challenges = [
-      {
-        startCode: `function foo(){\nreturn 'bar';\n}`,
-        testCode:`describe('foo', function(){\n
-          it ('should return bar', function(done){\n
-              expect(foo()).to.equal('bar');\n
-              //run some function here\n
-          });\n
-          });`,
-        solution: `describe('foo', function(){\n
-          it ('should return bar', function(done){\n
-              expect(foo()).to.equal('bar');\n
-              done();\n
-          });\n
-          });`,
-        title: 'SimpleTest',
-        difficulty: 'easy',
-        description: 'our simplest test',
-        authorId: 1
-      }
-    ];
-
-    var creatingChallenges = challenges.map(function(challengeObj){
+    var creatingChallenges = seededChallenges.map(function(challengeObj){
         return Challenge.create(challengeObj);
     });
 
