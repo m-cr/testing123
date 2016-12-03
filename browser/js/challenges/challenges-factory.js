@@ -32,7 +32,7 @@ app.factory('Challenge', function($http, Session){
 			return challenge;
 		});
 	};
-	
+
 	Challenge.getCreatedChallenges = function(){
 		return $http.get(`/api/users/${Session.user.id}/challenges`)
 			.then(function(response){
