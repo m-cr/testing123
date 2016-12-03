@@ -5,16 +5,14 @@ app.config(function ($stateProvider) {
         controller: 'ChallengesController',
         templateUrl: 'js/challenges/challenges.html',
         resolve: {
-        	challenges: function(Challenge){
-        		return Challenge.findAll();
-        	}
+            challenges: function(Challenge){
+                return Challenge.findAll();
+            }
         }
-    });  
+    });
 
 });
 
 app.controller('ChallengesController', function($scope, challenges){
 	$scope.challenges = challenges;
 });
-
-
