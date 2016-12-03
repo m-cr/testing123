@@ -28,5 +28,4 @@ module.exports = db.define('challenge', {
     type: Sequelize.TEXT,
     allowNull: false
   }
-
 });
