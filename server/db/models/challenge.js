@@ -4,7 +4,10 @@ var Sequelize = require('sequelize');
 var db = require('../_db');
 
 module.exports = db.define('challenge', {
-
+  title: {
+    type: Sequelize.TEXT,
+    allowNull: false
+  },
   startCode: {
     type: Sequelize.TEXT,
     allowNull: false
@@ -18,7 +21,8 @@ module.exports = db.define('challenge', {
     allowNull: false
   },
   difficulty: {
-    type: Sequelize.STRING
+    type: Sequelize.STRING,
+    allowNull: false
   },
   description: {
     type: Sequelize.TEXT,

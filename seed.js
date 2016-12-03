@@ -28,10 +28,12 @@ var seedUsers = function () {
 
     var users = [
         {
+            name: 'Testing Fsa',
             email: 'testing@fsa.com',
             password: 'password'
         },
         {
+            name: 'Obama',
             email: 'obama@gmail.com',
             password: 'potus'
         }
@@ -81,6 +83,7 @@ var seedChallenges = function () {
               done();\n
           });\n
           });`,
+        title: 'SimpleTest',
         difficulty: 'easy',
         description: 'our simplest test',
         authorId: 1
