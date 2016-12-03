@@ -21,11 +21,13 @@ router.post('/', ensureAuthenticated, function(req, res, next){
 	var newChallenge = req.body;
 
 	Challenge.create({
+		title: newChallenge.title,
+		difficulty: newChallenge.difficulty,
+		description: newChallenge.description,
 		startCode: newChallenge.code,
 		testCode: newChallenge.testCode,
 		solution: newChallenge.solution,
-		difficulty: newChallenge.difficulty,
-		description: newChallenge.description
+		authorId: req.user.id
 	})
 	.then(function(challenge){
 		// console.log(challenge);

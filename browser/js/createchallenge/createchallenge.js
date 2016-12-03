@@ -10,6 +10,8 @@ app.config(function($stateProvider){
 
 app.controller('CreateChallengeCtrl', function($scope, Challenge){
 
+	$scope.difficulties = ['easy', 'medium', 'hard'];
+
 	$scope.codeEditorOptions = {
 		lineNumbers: true,
 		mode: 'javascript'
