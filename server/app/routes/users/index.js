@@ -50,6 +50,10 @@ router.get('/:id', (req, res, next) => {
     }]
   })
   .then(function(user){
+    user.score = user.trophies.length;
+    return user.save();
+  })
+  .then(function(user){
     res.send(user);
   })
   .catch(next);

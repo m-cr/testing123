@@ -2,28 +2,30 @@
 	<h1>Your Profile</h1>
 
 	<div class="well">
-		<h3>Name: </h3>	
+		<h3>Name: {{member.name}}</h3>	
 		<h3>Email: {{member.email}}</h3>
 		<h3>Score: {{member.score}}</h3>
 	</div>
 	<hr>
 
-	<h2>Your Completed Challenges</h2>
+	<h2>Completed Challenges</h2>
 	<ul class="list-group">
 		<li class="list-group-item" ng-repeat="trophy in completedChallenges">
-			<p>Title: {{trophy.challenge.title}}</p>
+			<p><strong>Title: <a ui-sref="individualChallenge({id: challenge.id})">{{trophy.challenge.title}}</strong></a></p>
 			<p>Difficulty: {{trophy.challenge.difficulty}}</p>
 			<p>Description: {{triphy.challenge.description}}</p>
+			<button class="btn btn-default" ui-sref="individualChallenge({id: challenge.id})">Go To This Challenge</button>
 		</li>
 	</ul>
 	<hr>
 
-	<h2>Your Created Challenges</h2>
+	<h2>Created Challenges</h2>
 	<ul class="list-group">
 		<li class="list-group-item" ng-repeat="challenge in createdChallenges">
-			<p>Title: {{challenge.title}}</p>
+			<p><strong>Title: <a ui-sref="individualChallenge({id: challenge.id})">{{challenge.title}}</strong></a></p>
 			<p>Difficulty: {{challenge.difficulty}}</p>
 			<p>Description: {{challenge.description}}</p>
+			<button class="btn btn-default" ui-sref="individualChallenge({id: challenge.id})">Go To This Challenge</button>
 		</li>
 	</ul>
 

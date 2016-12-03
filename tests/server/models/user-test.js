@@ -6,6 +6,8 @@ var Sequelize = require('sequelize');
 var db = require('../../../server/db');
 
 var User = db.model('user');
+var Trophy = db.model('trophy');
+var Challenge = db.model('challenge');
 
 describe('User model', function () {
 
@@ -143,9 +145,36 @@ describe('User model', function () {
                     expect(user.salt).to.be.ok;
                     expect(sanitizedUser.password).to.be.undefined;
                     expect(sanitizedUser.salt).to.be.undefined;
+                    // expect(user.score()).to.be.ok;
+                    // expect(user.score()).to.equal(0);
                 });
             });
         });
+
+        // describe('user score', function(){
+        //     it('is a function that returns a value', function(){
+        //         var obama;
+        //         User.findOne({
+        //             where: {
+        //                 id: 1
+        //             }, include: [{
+        //                 model: Trophy,
+        //                 include: [Challenge]
+        //             }]
+        //         })
+        //         .then(function(user){
+        //             console.log(user);
+        //         })
+
+        //         // .then(function(user){
+        //         //     obama = user;
+        //         // });
+                
+        //         // console.log(obama);
+        //         // expect(user.score()).to.equal(1);
+        //         // expect
+        //     });
+        // });
 
     });
 

@@ -30,12 +30,14 @@ var seedUsers = function () {
         {
             name: 'Testing Fsa',
             email: 'testing@fsa.com',
-            password: 'password'
+            password: 'password',
+            score: 1
         },
         {
             name: 'Obama',
             email: 'obama@gmail.com',
-            password: 'potus'
+            password: 'potus',
+            score: 1
         }
     ];
 
@@ -56,7 +58,8 @@ var seedTrophies = function(){
     { 
       userId: 2,
       challengeId: 1
-    }
+    },
+    { userId: 1, challengeId: 1}
   ];
 
   var creatingTrophies = trophies.map(function(trophyObj){
