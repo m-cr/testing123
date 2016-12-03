@@ -28,14 +28,22 @@ router.post('/submit', function(req, res, next){
 		var exec = require('child_process').exec;
 		exec('node_modules/mocha/bin/mocha ./testSpec.js', function (err, stdout, stderr) {
 			if (err) {
-				console.log(err);
+				console.log('error');
+				console.log(typeof err);
+				console.log(err.stack)
+				var realError = {
+					message: 'Either your test code or start code has some sort of syntax error. Look at the error stack below to find out where.',
+					errStack: err.stack
+				};
+				res.send(realError);
 			}
 			else if (stderr) {
+				console.log('stderr');
 				console.log(stderr);
 				res.send(stderr);
+			} else {
+				res.send(stdout);
 			}
-			// console.log(stdout);
-			res.send(stdout);
 		});
 	});
 

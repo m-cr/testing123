@@ -26,10 +26,6 @@ module.exports = db.define('challenge', {
     defaultValue: 'Unknown',
     allowNull: false
   },
-  title: {
-    type: Sequelize.STRING,
-    allowNull: false
-  },
   description: {
     type: Sequelize.TEXT,
     allowNull: false
