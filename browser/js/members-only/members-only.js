@@ -17,7 +17,7 @@ app.controller('MembersOnlyCtrl', function($scope, Members, Challenge){
 
     Members.getUser()
         .then(function(member){
-            // console.log(member);
+            console.log(member);
             $scope.member = member;
             $scope.completedChallenges = member.trophies;
         });
@@ -39,7 +39,7 @@ app.factory('Members', function($http, Session){
         console.log(Session.user.id);
         return $http.get('/api/users/' + Session.user.id)
             .then(function(response){
-                // console.log(response.data);
+                console.log(response.data);
                 return response.data;
             });
     };
