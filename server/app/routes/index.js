@@ -3,7 +3,18 @@ var fs = require('fs');
 var router = require('express').Router(); // eslint-disable-line new-cap
 module.exports = router;
 
-router.use('/members', require('./members'));
+var ensureAuthenticated = function (req, res, next) {
+    var err;
+    if (req.isAuthenticated()) {
+        next();
+    } else {
+        err = new Error('You must be logged in.');
+        err.status = 401;
+        next(err);
+    }
+};
+
+router.use('/members', ensureAuthenticated, require('./members'));
 router.use('/users', require('./users'));
 router.use('/challenges', require('./challenges'));
 
@@ -27,7 +38,7 @@ router.post('/submit', function(req, res, next){
 			res.send(stdout);
 		});
 	});
-	
+
 });
 
 router.use(function (req, res, next) {

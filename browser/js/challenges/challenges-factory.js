@@ -5,9 +5,9 @@ app.factory('Challenge', function($http){
 	var challenges = [];
 	var challenge = {};
 
-	Challenge.create = function(challenge){
+	Challenge.create = function(newChallenge){
 		console.log('factory function');
-		return $http.post('/api/challenges', challenge)
+		return $http.post('/api/challenges', newChallenge)
 			.then(function(){
 				console.log('challenge created');
 			});

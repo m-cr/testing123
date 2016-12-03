@@ -4,7 +4,18 @@ var User = require('../../../db/models/user');
 
 module.exports = router;
 
-router.post('/', function(req, res, next){
+var ensureAuthenticated = function (req, res, next) {
+    var err;
+    if (req.isAuthenticated()) {
+        next();
+    } else {
+        err = new Error('You must be logged in.');
+        err.status = 401;
+        next(err);
+    }
+};
+
+router.post('/', ensureAuthenticated, function(req, res, next){
 	// console.log(req.body);
 
 	var newChallenge = req.body;
@@ -24,13 +35,10 @@ router.post('/', function(req, res, next){
 });
 
 router.get('/', function(req, res, next){
-	
-	Challenge.findAll(
-	//TODO: figure out this include
-	// {
-	// 	include: [User, {as: 'author'}]
-	// }
-	)
+
+	Challenge.findAll({
+		include: [{model: User, as: 'author'}]
+	})
 	.then(function(challenges){
 		console.log(challenges);
 		res.send(challenges);
@@ -44,9 +52,8 @@ router.get('/:id', function(req, res, next){
 	Challenge.findOne({
 		where: {
 			id: req.params.id
-		}
-		//TODO: same issue with include
-		// include: [User, {as: 'author'}]
+		},
+		include: [{model: User, as: 'author'}]
 	})
 	.then(function(challenge){
 		res.send(challenge);
