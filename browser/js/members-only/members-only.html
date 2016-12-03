@@ -10,10 +10,10 @@
 
 	<h2>Your Completed Challenges</h2>
 	<ul class="list-group">
-		<li class="list-group-item" ng-repeat="challenge in completedChallenges">
-			{{challenge.title}}
-			{{challenge.difficulty}}
-			{{challenge.solution}}
+		<li class="list-group-item" ng-repeat="trophy in completedChallenges">
+			<p>Title: {{trophy.challenge.title}}</p>
+			<p>Difficulty: {{trophy.challenge.difficulty}}</p>
+			<p>Description: {{triphy.challenge.description}}</p>
 		</li>
 	</ul>
 	<hr>
@@ -21,9 +21,9 @@
 	<h2>Your Created Challenges</h2>
 	<ul class="list-group">
 		<li class="list-group-item" ng-repeat="challenge in createdChallenges">
-			{{challenge.title}}
-			{{challenge.difficulty}}
-			{{challenge.solution}}
+			<p>Title: {{challenge.title}}</p>
+			<p>Difficulty: {{challenge.difficulty}}</p>
+			<p>Description: {{challenge.description}}</p>
 		</li>
 	</ul>
 

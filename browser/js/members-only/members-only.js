@@ -13,12 +13,19 @@ app.config(function ($stateProvider) {
 
 });
 
-app.controller('MembersOnlyCtrl', function($scope, Members){
+app.controller('MembersOnlyCtrl', function($scope, Members, Challenge){
     
     Members.getUser()
         .then(function(member){
-            console.log(member);
+            // console.log(member);
             $scope.member = member;
+            $scope.completedChallenges = member.trophies;
+        });
+
+    Challenge.getCreatedChallenges()
+        .then(function(challenges){
+            //console.log(challenges);
+            $scope.createdChallenges = challenges;
         });
 
 });
@@ -36,46 +43,6 @@ app.factory('Members', function($http, Session){
                 return response.data;
             });
     };
-
-//     AccountService.getChallenges = function(){
-//         return $http.get('/api/account/orders')
-//             .then(function(response){
-//                 return response.data;
-//             });
-//     };
-
-//     AccountService.getShipping = function(){
-//         return $http.get('/api/address/shipping')
-//             .then(function(response){
-//                 return response.data;
-//             });
-//     };
-
-//     AccountService.getBilling = function(){
-//         return $http.get('/api/address/billing')
-//             .then(function(response){
-//                 return response.data;
-//             });
-//     };
-
-//     AccountService.saveShipping = function(address){
-//         return $http.post('/api/address/shipping', address);
-//     };
-
-//     AccountService.saveBilling = function(address){
-//         return $http.post('/api/address/billing', address);
-//     };
-
-//     AccountService.clearShipping = function(){
-//         return $http.delete('/api/address/shipping');
-//     };
-
-//     AccountService.clearBilling = function(){
-//         return $http.delete('/api/address/billing');
-//     };
-
-//     return AccountService;
-// });
 
     return Members;
 
