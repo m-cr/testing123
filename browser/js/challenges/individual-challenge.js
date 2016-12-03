@@ -21,8 +21,16 @@ app.controller('OneChallengeCtrl', function($scope, challenge, $http){
 		// console.log(newCode);
 		return $http.post('/api/submit', {code: newCode})
 			.then(function(response){
-				// console.log(response.data);
-				$scope.response = response.data.split('\n');
+				$scope.response = '';
+				$scope.longerResponse = '';
+				console.log(response);
+				console.log(response.data);
+				if (response.data.message){
+					$scope.response = response.data.message.split('\n');
+					$scope.longerResponse = response.data.errStack.split('\n').slice(2);
+				} else {
+					$scope.response = response.data.split('\n');
+				}
 			});
 	};
 
