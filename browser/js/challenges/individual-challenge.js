@@ -29,10 +29,19 @@ app.controller('OneChallengeCtrl', function($scope, challenge, $http){
 					$scope.response = response.data.message.split('\n');
 					$scope.longerResponse = response.data.errStack.split('\n').slice(2);
 				} else {
-					$scope.response = response.data.split('\n');
+					var output = response.data.split('\n');
+					$scope.response = output;
+					if(output.length){
+						$scope.passing = output[output.length-3];
+					}
 				}
 			});
 	};
+
+	// $scope.passing = 'test';
+	// if($scope.response){
+	// 	$scope.passing = $scope.response[$scope.response.length-1];
+	// }
 
 	$scope.testEditorOptions = {
 		lineNumbers: true,

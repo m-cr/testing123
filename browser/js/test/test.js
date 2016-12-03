@@ -17,13 +17,18 @@ app.controller('TestCtrl', function($scope, $http){
 			.then(function(response){
 				$scope.response = '';
 				$scope.longerResponse = '';
+				$scope.passing = '';
 				console.log(response);
 				console.log(response.data);
 				if (response.data.message){
 					$scope.response = response.data.message.split('\n');
-					$scope.longerResponse = response.data.errStack.split('\n').slice(1);
+					$scope.longerResponse = response.data.errStack.split('\n').slice(2);
 				} else {
-					$scope.response = response.data.split('\n');
+					var output = response.data.split('\n');
+					$scope.response = output;
+					if(output.length){
+						$scope.passing = output[output.length-3];
+					}
 				}
 			});
 	};
