@@ -7,5 +7,5 @@ describe('foo', function(){
 
           it ('should return bar', function(don
           });
-
-          });
+          
+});
