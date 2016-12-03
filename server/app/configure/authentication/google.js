@@ -28,7 +28,6 @@ module.exports = function (app, db) {
                 where: {
                     google_id: profile.id,
                     email: profile.emails[0].value,
-                    name: profile.name.givenName + ' ' + profile.name.familyName
                 }
             })
             .then(function (user) {
