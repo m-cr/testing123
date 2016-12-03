@@ -43,7 +43,7 @@ router.get('/', function(req, res, next){
 		include: [{model: User, as: 'author'}]
 	})
 	.then(function(challenges){
-		console.log(challenges);
+		// console.log(challenges);
 		res.send(challenges);
 	})
 	.catch(next);
