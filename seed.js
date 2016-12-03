@@ -48,21 +48,71 @@ var seedChallenges = function () {
 
     var challenges = [
       {
-        startCode: `function foo(){\nreturn 'bar';\n}`,
+        startCode: `function foo(){\n  return 'bar';\n}`,
         testCode:`describe('foo', function(){\n
-          it ('should return bar', function(done){\n
+          it ('should return bar', function(){\n
               expect(foo()).to.equal('bar');\n
               //run some function here\n
           });\n
           });`,
         solution: `describe('foo', function(){\n
-          it ('should return bar', function(done){\n
+          it ('should return bar', function(){\n
               expect(foo()).to.equal('bar');\n
               done();\n
           });\n
           });`,
         difficulty: 'easy',
-        description: 'our simplest test',
+        title: 'Foo Returns Bar',
+        description: 'a simple unit test to help you get started',
+        authorId: 1
+      },
+      {
+        startCode: `var arr = [0,1,2,3,4];\nvar slicedArr = arr.slice(0, 2);`,
+        testCode: `describe('slice', function(){
+          it('should return a shallow copy of a portion of an array', function(){
+              expect(slicedArr).to./*see note below*/([0,1]);
+          });
+          it('should not splice the original array', function(){
+            expect(arr).to.have.lengthOf(5);
+          });
+        });
+
+        //try inserting "equal" here and run the test
+        //now try "eql" instead, and see the difference`, 
+        solution: `describe('slice', function(){
+          it('should return a shallow copy of a portion of an array', function(done){
+            expect(slicedArr).to.eql([0,1]);
+          });
+          it('should not effect the original array', function(){
+            expect(arr).to.have.lengthOf(5);
+          });
+        });
+
+        //"equal" is strict, and behaves like the "===" operator
+        //"eql" checks to see if the values are "deep equal"`,
+        difficulty: 'easy',
+        title: 'Testing Splice',
+        description: 'Test a common array method to learn the difference between "equal" and "eql".',
+        authorId: 1
+      },
+      {
+        startCode: 
+          `var foo = function(){\n  return 'bar';\n};`,
+        testCode:
+          `//Try writing your own describe block around this test code for the function “foo”:
+
+          it('should return bar', function(){
+            expect(foo()).to.equal('bar');
+          });\n\n//HINT: the code above goes inside the body of the function that is your describe block’s second parameter.`,
+        solution:
+          `describe('foo', function(){
+            it ('should return bar', function(){
+             expect(foo()).to.equal('bar');
+            });
+          });`,
+        difficulty: 'easy',
+        title: 'Writing Your First Describe Block',
+        description: 'Get familiar with a basic building block of test code.',
         authorId: 1
       }
     ];
