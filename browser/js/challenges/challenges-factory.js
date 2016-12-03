@@ -1,4 +1,4 @@
-app.factory('Challenge', function($http){
+app.factory('Challenge', function($http, Session){
 
 	var Challenge = {};
 
@@ -31,6 +31,13 @@ app.factory('Challenge', function($http){
 			angular.copy(response.data, challenge);
 			return challenge;
 		});
+	};
+	
+	Challenge.getCreatedChallenges = function(){
+		return $http.get(`/api/users/${Session.user.id}/challenges`)
+			.then(function(response){
+				return response.data;
+			});
 	};
 
 	return Challenge;
