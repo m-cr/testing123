@@ -12,5 +12,5 @@ describe('foo', function(){
               //run some function here
 
           });
-
-          });
+          
+});

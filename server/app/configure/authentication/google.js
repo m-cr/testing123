@@ -17,9 +17,14 @@ module.exports = function (app, db) {
 
     var verifyCallback = function (accessToken, refreshToken, profile, done) {
 
+        if (!profile.emails.length) {
+            return done('no emails found', null);
+        }
+
         User.findOne({
                 where: {
-                    google_id: profile.id
+                    google_id: profile.id,
+                    email: profile.emails[0].value
                 }
             })
             .then(function (user) {
@@ -27,7 +32,8 @@ module.exports = function (app, db) {
                     return user;
                 } else {
                     return User.create({
-                        google_id: profile.id
+                        google_id: profile.id,
+                        email: profile.emails[0].value
                     });
                 }
             })
@@ -51,7 +57,9 @@ module.exports = function (app, db) {
     }));
 
     app.get('/auth/google/callback',
-        passport.authenticate('google', {failureRedirect: '/login'}),
+        passport.authenticate('google', {
+            failureRedirect: '/login'
+        }),
         function (req, res) {
             res.redirect('/');
         });
