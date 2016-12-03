@@ -1,22 +1,22 @@
 <div class="container">
   
-  <h1 align="center">Challenge: {{challenge.title}}</h1>
-  <h5 align="center">Description: {{challenge.description}}</h5>
-  <h5 align="center">Difficulty: {{challenge.difficulty}}</h5>
-  <h5 align="center">Author: {{challenge.author.name}}</h5>
+  <h1 align="center">Challenge: {{$ctrl.challenge.title}}</h1>
+  <h5 align="center">Description: {{$ctrl.challenge.description}}</h5>
+  <h5 align="center">Difficulty: {{$ctrl.challenge.difficulty}}</h5>
+  <h5 align="center">Author: {{$ctrl.challenge.author.name}}</h5>
   <hr>
 
   <h3>Code:</h3>
     <div class="well">
-      <ui-codemirror ui-codemirror-opts="codeEditorOptions" ng-model="challenge.startCode"></ui-codemirror>
+      <ui-codemirror ui-codemirror-opts="codeEditorOptions" ng-model="$ctrl.challenge.startCode"></ui-codemirror>
     </div>
   
   <h3>Test Code:</h3>
     <div class="well">
-      <ui-codemirror ui-codemirror-opts="testEditorOptions" ng-model="challenge.testCode"></ui-codemirror>
+      <ui-codemirror ui-codemirror-opts="testEditorOptions" ng-model="$ctrl.challenge.testCode"></ui-codemirror>
     </div>
 
-  <input class="btn btn-primary" type="submit" value="Run Tests" ng-click="submit(challenge.startCode, challenge.testCode)"></input>
+  <input class="btn btn-primary" type="submit" value="Run Tests" ng-click="submit($ctrl.challenge.startCode, $ctrl.challenge.testCode)"></input>
   
   <h3>Results:</h3>
     <div class = "well well-lg">

@@ -1,7 +1,7 @@
 app.config(function($stateProvider){
 
-	$stateProvider.state('challengeDetail', {
-		url: '/challenges/:id',
+	$stateProvider.state('tutorial', {
+		url: '/tutorial/:id',
 		template: '<challenge-details challenge="$resolve.challenge"></challenge-details>',
 		resolve: {
 			challenge: function($stateParams, Challenge){
@@ -11,4 +11,3 @@ app.config(function($stateProvider){
 	});
 
 });
-

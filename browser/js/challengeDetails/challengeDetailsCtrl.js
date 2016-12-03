@@ -1,5 +1,7 @@
-app.controller('OneChallengeCtrl', function($scope, challenge, $http){
-	$scope.challenge = challenge;
+app.controller('ChallengeDetailsCtrl', function($scope, $http){
+
+	var $ctrl = this;
+	// console.log(this.data);
 
 	$scope.submit = function(code, testCode){
 		var newCode = `var mocha = require("mocha");\nvar expect = require("chai").expect;\n${code}\n${testCode}`;
