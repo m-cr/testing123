@@ -21,6 +21,7 @@ var chalk = require('chalk');
 var db = require('./server/db');
 var User = db.model('user');
 var Challenge = db.model('challenge');
+var Trophy = db.model('trophy');
 var Promise = require('sequelize').Promise;
 var seededChallenges = require('./seededChallenges');
 
@@ -28,12 +29,16 @@ var seedUsers = function () {
 
     var users = [
         {
+            name: 'Testing Fsa',
             email: 'testing@fsa.com',
-            password: 'password'
+            password: 'password',
+            score: 1
         },
         {
+            name: 'Obama',
             email: 'obama@gmail.com',
-            password: 'potus'
+            password: 'potus',
+            score: 1
         }
     ];
 
@@ -43,6 +48,26 @@ var seedUsers = function () {
 
     return Promise.all(creatingUsers);
 
+};
+
+var seedTrophies = function(){
+  var trophies = [
+    { 
+      userId: 1,
+      challengeId: 1
+    },
+    { 
+      userId: 2,
+      challengeId: 1
+    },
+    { userId: 1, challengeId: 1}
+  ];
+
+  var creatingTrophies = trophies.map(function(trophyObj){
+    return Trophy.create(trophyObj);
+  });
+
+  return Promise.all(creatingTrophies);
 };
 
 var seedChallenges = function () {
@@ -60,6 +85,9 @@ db.sync({ force: true })
     })
     .then(function(){
         return seedChallenges();
+    })
+    .then(function(){
+        return seedTrophies();
     })
     .then(function () {
         console.log(chalk.green('Seed successful!'));

@@ -1,21 +1,24 @@
 <div class="container">
   
-  <h1 align="center">Give it a shot!</h1>
+  <h1 align="center">Give it a shot</h1>
   <hr>
 
-  <h3>Code:</h3>
+  <h3>Code</h3>
+  <h5>Enter some code you would like to test: </h5>
     <div class="well">
       <ui-codemirror ui-codemirror-opts="codeEditorOptions" ng-model="code"></ui-codemirror>
     </div>
   
-  <h3>Test Code:</h3>
+  <h3>Tests</h3>
+  <h5>Write some test code: </h5>
     <div class="well">
       <ui-codemirror ui-codemirror-opts="testEditorOptions" ng-model="testCode"></ui-codemirror>
     </div>
 
   <input class="btn btn-primary" type="submit" value='Run Tests' ng-click="submit(code, testCode)"></input>
   
-  <h3>Results:</h3>
+  <h3>Result</h3>
+  <h5>This is the output of your tests:</h5>
     <div class = "well well-lg">
       <p ng-repeat='piece in response track by $index'>{{piece}}</p>
     </div>

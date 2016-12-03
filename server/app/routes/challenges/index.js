@@ -1,20 +1,33 @@
 var router = require('express').Router();
 var Challenge = require('../../../db/models/challenge');
-var User = require('../../../db/models/User');
+var User = require('../../../db/models/user');
 
 module.exports = router;
 
-router.post('/', function(req, res, next){
+var ensureAuthenticated = function (req, res, next) {
+    var err;
+    if (req.isAuthenticated()) {
+        next();
+    } else {
+        err = new Error('You must be logged in.');
+        err.status = 401;
+        next(err);
+    }
+};
+
+router.post('/', ensureAuthenticated, function(req, res, next){
 	// console.log(req.body);
 
 	var newChallenge = req.body;
 
 	Challenge.create({
+		title: newChallenge.title,
+		difficulty: newChallenge.difficulty,
+		description: newChallenge.description,
 		startCode: newChallenge.code,
 		testCode: newChallenge.testCode,
 		solution: newChallenge.solution,
-		difficulty: newChallenge.difficulty,
-		description: newChallenge.description
+		authorId: req.user.id
 	})
 	.then(function(challenge){
 		// console.log(challenge);
@@ -25,7 +38,7 @@ router.post('/', function(req, res, next){
 });
 
 router.get('/', function(req, res, next){
-	
+
 	Challenge.findAll({
 		include: [{model: User, as: 'author'}]
 	})

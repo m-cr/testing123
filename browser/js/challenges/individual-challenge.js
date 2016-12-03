@@ -1,15 +1,15 @@
 app.config(function($stateProvider){
 
 	$stateProvider.state('individualChallenge', {
-    	url: '/challanges/:id',
-    	templateUrl: 'js/challenges/individual-challenge.html',
-    	resolve: {
-    		challenge: function($stateParams, Challenge){
-    			return Challenge.findOne($stateParams.id);
-    		}
-    	},
-    	controller: 'OneChallengeCtrl'
-    });
+		url: '/challanges/:id',
+		templateUrl: 'js/challenges/individual-challenge.html',
+		resolve: {
+			challenge: function($stateParams, Challenge){
+				return Challenge.findOne($stateParams.id);
+			}
+		},
+		controller: 'OneChallengeCtrl'
+	});
 
 });
 
@@ -34,7 +34,7 @@ app.controller('OneChallengeCtrl', function($scope, challenge, $http){
 	$scope.codeEditorOptions = {
 		lineNumbers: true,
 		mode: 'javascript',
-		readOnly: "nocursor"
+		readOnly: 'nocursor'
 	};
 
 });

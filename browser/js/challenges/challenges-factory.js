@@ -1,13 +1,13 @@
-app.factory('Challenge', function($http){
+app.factory('Challenge', function($http, Session){
 
 	var Challenge = {};
 
 	var challenges = [];
 	var challenge = {};
 
-	Challenge.create = function(challenge){
+	Challenge.create = function(newChallenge){
 		console.log('factory function');
-		return $http.post('/api/challenges', challenge)
+		return $http.post('/api/challenges', newChallenge)
 			.then(function(){
 				console.log('challenge created');
 			});
@@ -16,10 +16,10 @@ app.factory('Challenge', function($http){
 	Challenge.findAll = function(){
 		return $http.get('/api/challenges')
 		.then(function(response){
-			console.log('challenges grabbed');
-			console.log(response.data);
+			// console.log('challenges grabbed');
+			// console.log(response.data);
 			angular.copy(response.data, challenges);
-			console.log(challenges);
+			// console.log(challenges);
 			return challenges;
 		});
 	};
@@ -31,6 +31,13 @@ app.factory('Challenge', function($http){
 			angular.copy(response.data, challenge);
 			return challenge;
 		});
+	};
+
+	Challenge.getCreatedChallenges = function(){
+		return $http.get(`/api/users/${Session.user.id}/challenges`)
+			.then(function(response){
+				return response.data;
+			});
 	};
 
 	return Challenge;

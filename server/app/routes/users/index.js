@@ -1,7 +1,24 @@
 'use strict';
 var router = require('express').Router();
+
 var User = require('../../../db/models/user.js');
+var Challenge = require('../../../db/models/challenge.js');
+var Trophy = require('../../../db/models/trophy.js');
+
 module.exports = router;
+
+router.get('/', function(req, res, next){
+
+  return User.findAll({
+    include: [Challenge]
+  })
+  .then(function(users){
+    console.log(users);
+    res.send(users);
+  })
+  .catch(next);
+
+});
 
 router.post('/', (req, res, next) => {
 
@@ -26,7 +43,15 @@ router.get('/:id', (req, res, next) => {
   return User.findOne({
     where: {
       id: req.params.id
-    }
+    },
+    include: [{
+      model: Trophy,
+      include: [Challenge]
+    }]
+  })
+  .then(function(user){
+    user.score = user.trophies.length;
+    return user.save();
   })
   .then(function(user){
     res.send(user);
@@ -34,3 +59,17 @@ router.get('/:id', (req, res, next) => {
   .catch(next);
 
 });
+
+router.get('/:id/challenges', (req, res, next) => {
+  Challenge.findAll({
+    where: {
+      authorId: req.params.id
+    }
+  })
+  .then(function(challenges){
+    console.log(challenges);
+    res.send(challenges);
+  })
+  .catch(next);
+});
+
