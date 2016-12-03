@@ -3,11 +3,9 @@
 	<ul class="list-group">
 		<li style="margin: 10px" class="list-group-item" ng-repeat="challenge in challenges">
 			<h4>Title: {{challenge.title}}</h4>
-			<p><strong>Submitted By:</strong>{{challenge.author}}</p>
-			<p><strong>Difficulty:</strong>{{challenge.difficulty}}</p>
-			<p><strong>Start Code:</strong> {{challenge.startCode}}</p>
-			<p><strong>Test Code:</strong> {{challenge.testCode}}</p>
-			<p><strong>Solution:</strong> {{challenge.solution}}</p>
+			<p><strong>Submitted By:</strong> {{challenge.author.email}}</p>
+			<p><strong>Difficulty:</strong> {{challenge.difficulty}}</p>
+			<p><strong>Description:</strong> {{challenge.description}}</p>
 			<button class="btn btn-default" ui-sref="individualChallenge({id: challenge.id})">Try This Challenge!</button>
 		</li>
 	</ul>

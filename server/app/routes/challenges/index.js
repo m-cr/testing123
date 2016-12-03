@@ -24,7 +24,8 @@ router.post('/', ensureAuthenticated, function(req, res, next){
 		startCode: newChallenge.code,
 		testCode: newChallenge.testCode,
 		solution: newChallenge.solution,
-		difficulty: newChallenge.difficulty
+		difficulty: newChallenge.difficulty,
+		description: newChallenge.description
 	})
 	.then(function(challenge){
 		// console.log(challenge);
@@ -53,7 +54,7 @@ router.get('/:id', function(req, res, next){
 		where: {
 			id: req.params.id
 		},
-		include: [{model: User, as: 'author'}]
+	    include: [{model: User, as: 'author'}]
 	})
 	.then(function(challenge){
 		res.send(challenge);
