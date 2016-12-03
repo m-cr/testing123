@@ -20,34 +20,59 @@ module.exports = function (app, db) {
         if (!profile.emails.length) {
             return done('no emails found', null);
         }
-        if (!profile.name) {
-            return done('No name found on your Google account. Please add your name to your Google account.', null);
-        }
 
-        User.findOne({
-                where: {
-                    google_id: profile.id,
-                    email: profile.emails[0].value,
-                }
-            })
-            .then(function (user) {
-                if (user) {
-                    return user;
-                } else {
-                    return User.create({
+        if (!profile.name.familyName && !profile.name.givenName) {
+            User.findOne({
+                    where: {
                         google_id: profile.id,
                         email: profile.emails[0].value,
-                        name: profile.name.givenName + ' ' + profile.name.familyName
-                    });
-                }
-            })
-            .then(function (userToLogin) {
-                done(null, userToLogin);
-            })
-            .catch(function (err) {
-                console.error('Error creating user from Google authentication', err);
-                done(err);
-            });
+                    }
+                })
+                .then(function (user) {
+                    if (user) {
+                        return user;
+                    } else {
+                        return User.create({
+                            google_id: profile.id,
+                            email: profile.emails[0].value
+                        });
+                    }
+                })
+                .then(function (userToLogin) {
+                    done(null, userToLogin);
+                })
+                .catch(function (err) {
+                    console.error('Error creating user from Google authentication', err);
+                    done(err);
+                });
+        }
+        else {
+            User.findOne({
+                    where: {
+                        google_id: profile.id,
+                        email: profile.emails[0].value,
+                    }
+                })
+                .then(function (user) {
+                    if (user) {
+                        return user;
+                    } else {
+                        return User.create({
+                            google_id: profile.id,
+                            email: profile.emails[0].value,
+                            name: profile.name.givenName + ' ' + profile.name.familyName
+                        });
+                    }
+                })
+                .then(function (userToLogin) {
+                    done(null, userToLogin);
+                })
+                .catch(function (err) {
+                    console.error('Error creating user from Google authentication', err);
+                    done(err);
+                });
+        }
+
 
     };
 
