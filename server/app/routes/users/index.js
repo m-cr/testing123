@@ -25,7 +25,7 @@ router.post('/', function(req, res, next){
   if (req.body.firstName && req.body.lastName) {
     return User.findOne({
             where: {
-                email: req.body.email,
+                email: req.body.email
             }
         })
         .then(user => {
@@ -47,7 +47,7 @@ router.post('/', function(req, res, next){
   else {
     return User.findOne({
             where: {
-                email: req.body.email,
+                email: req.body.email
             }
         })
         .then(user => {
