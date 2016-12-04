@@ -2,4 +2,8 @@
 
 var db = require('../_db');
 
-module.exports = db.define('trophy', {});
+var Sequelize = require('sequelize');
+
+module.exports = db.define('trophy', {
+	submission: Sequelize.STRING
+});

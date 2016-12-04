@@ -1,0 +1,28 @@
+<div class="container">
+
+	<h1 align="center">Challenge Complete!</h1>
+	<hr>
+
+	<div class="well">
+		<h5>Title: {{challenge.title}}</h5>
+		<h5>Description: {{challenge.description}}</h5>
+		<h5>Difficulty: {{challenge.difficulty}}</h5>
+		<h5>Author: {{challenge.author.name}}</h5>
+	</div>
+
+	<h3>Tested Code:</h3>
+		<div class="well">
+		  <ui-codemirror ui-codemirror-opts="codeEditorOptions" ng-model="challenge.startCode"></ui-codemirror>
+		</div>
+
+	<h3>Solution:</h3>
+		<div class="well">
+		  <ui-codemirror ui-codemirror-opts="codeEditorOptions" ng-model="challenge.solution"></ui-codemirror>
+		</div>
+	
+	<h3>Your Submission:</h3>
+		<div class="well">
+		  <ui-codemirror ui-codemirror-opts="codeEditorOptions" ng-model="trophy.submission"></ui-codemirror>
+		</div>
+
+</div>

@@ -17,14 +17,15 @@ var ensureAuthenticated = function (req, res, next) {
 router.use('/members', ensureAuthenticated, require('./members'));
 router.use('/users', require('./users'));
 router.use('/challenges', require('./challenges'));
+router.use('/trophies', require('./trophies'));
 
 
 router.post('/submit', function(req, res, next){
-	//create file
+
 	fs.writeFile('./testSpec.js', req.body.code, function (error) {
 		// console.log(req.body.code);
 		if (error) console.log(error);
-		// run child process
+
 		var exec = require('child_process').exec;
 		exec('node_modules/mocha/bin/mocha ./testSpec.js', function (err, stdout, stderr) {
 			if (stdout) {
