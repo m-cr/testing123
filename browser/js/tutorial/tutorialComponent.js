@@ -8,11 +8,6 @@ app.component('tutorial', {
 
 		this.index = 0;
 
-		this.advance = function(){
-			challengeIndex = this.bodyText[this.index].challengeId;
-			return that.index++;
-		};
-
 		this.codeEditorOptions = {
 			lineNumbers: true,
 			mode: 'javascript',
@@ -59,17 +54,67 @@ app.component('tutorial', {
 		]}, {
 			part: 5,
 			challengeId: 2
+		},{
+			part: 6,
+			body: [`Great! But what’s going on inside that describe block?`,`Let’s take a look at line 2:`],
+			code: `it('should return bar', function(){`,
+			afterCode: [
+			  `This looks a lot like our describe block, doesn’t it?`,
+			  `You’ve just met “it”, the basic test case function in Mocha.`,
+			  `Like describe, it takes a string that declares what you’re testing and a function that will contain more test code. `,
+			  `The plain English style of Mocha & Chai allow you to glance at test code and easily understand what it’s doing.`,
+			  `In this case we read the ‘describe’ and ‘it’ blocks’ first parameters together to see what we’re testing: “foo should return bar”.` 
+			]
+		},{
+			part: 7,
+			body: [`Now for line 3:`],
+			code: `expect(foo()).to.equal('bar');`,
+			afterCode: [
+			  `This is what is called an assertion.`,
+			  `Remember we talked about the “assertion library” Chai? Here it is in action.`,
+			  `Chai lets us use “language chains” to create readable assertions for our test code to pass or fail. In this case, we “expect” the result of calling the function ‘foo’ “to equal” the string ‘bar’. If that expectation is met, the test will pass. If not, it will fail.`,
+			  `Continue to the next challenge and fill in the test case for a simple function yourself!`
+			]
+		}, {
+			part: 8,
+			challengeId: 3
+		}, {
+			part: 9,
+			body: [
+			  `There are several assertion styles and types. We’ve been using Chai’s “expect” interface thus far, familiarizing ourselves with “expect,” “to,” and “equal”.`,
+			  `Let’s see what else Mocha and Chai can help us test for, besides strict equality.`,
+			  `Suppose we have an array with 5  numbers and we want to copy its first two elements into a new array. The code to do that might look something like this: `
+			],
+			code: `var arr = [0, 1, 2, 3, 4]\nvar newArr = arr.slice(0,2)`,
+			afterCode: [
+			  `In order to see if this worked, we can test that newArr has a length of 2. We can also test the length of the original array to make sure we didn’t accidentally change it.`,
+			  `We can do this with the “lengthOf” assertion and the language chain “have”.`,
+			  `Try it out in the next challenge.`
+			]
+		}, {
+			part: 10,
+			challengeId: 4
 		}
+
 		];
 
-		Challenge.findOne(challengeIndex)
-		  .then(function(challenge){
-		  	that.challenge = challenge;
-		  })
-		  .catch(function(err){
-		  	console.log(err);
-		  });
+		this.advance = function(){
+			challengeIndex = this.bodyText[this.index + 1].challengeId;
+			if(challengeIndex){
+				getChallenge();
+			}
+			return that.index++;
+		};
 
+		var getChallenge = function(){
+			Challenge.findOne(challengeIndex)
+			  .then(function(challenge){
+			  	that.challenge = challenge;
+			  })
+			  .catch(function(err){
+			  	console.log(err);
+			  });
+		};
 
      }
 
