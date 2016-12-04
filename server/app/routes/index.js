@@ -17,6 +17,7 @@ var ensureAuthenticated = function (req, res, next) {
 router.use('/members', ensureAuthenticated, require('./members'));
 router.use('/users', require('./users'));
 router.use('/challenges', require('./challenges'));
+router.use('/trophies', require('./trophies'));
 
 
 router.post('/submit', function(req, res, next){
