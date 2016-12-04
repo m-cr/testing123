@@ -90,15 +90,17 @@ router.get('/:id', (req, res, next) => {
 });
 
 router.get('/:id/challenges', (req, res, next) => {
+
   Challenge.findAll({
     where: {
       authorId: req.params.id
     }
   })
   .then(function(challenges){
-    console.log(challenges);
+    // console.log(challenges);
     res.send(challenges);
   })
   .catch(next);
+
 });
 

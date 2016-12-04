@@ -30,7 +30,6 @@ app.factory('Challenge', function($http, Session, $state){
 		return $http.get('/api/challenges/' + id)
 		.then(function(response){
 			angular.copy(response.data, challenge);
-			challenge.required = 1;
 			console.log(challenge);
 			return challenge;
 		});

@@ -54,11 +54,13 @@ var seedTrophies = function(){
   var trophies = [
     { 
       userId: 1,
-      challengeId: 1
+      challengeId: 1,
+      submission: 'seeded submission'
     },
     { 
       userId: 2,
-      challengeId: 1
+      challengeId: 1,
+      submission: 'another seeded submission'
     },
     { userId: 1, challengeId: 1}
   ];
