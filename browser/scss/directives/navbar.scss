@@ -1,3 +1,4 @@
+/*
 navbar {
 
   display: block;
@@ -59,4 +60,109 @@ navbar {
     }
   }
 
+}
+*/
+
+
+.toggle_menu {
+    position: fixed;
+    padding: 15px 15px 15px 15px;
+    margin-top: 15px;
+    cursor: pointer;
+    z-index: 9999999999;
+    font-size: 2em;
+    opacity: 0;
+}
+
+.sidebar_menu {
+    position: fixed;
+    width: 230px;
+    margin-left: 0px;
+    overflow: hidden;
+    height: 100vh;
+    max-height: 100vh;
+    background-color: rgba(200, 200, 200, 0.9);
+    opacity: 0.95;
+    transition: all 0.3s ease-in-out;
+    z-index: 9999999999;
+}
+
+.fa-times {
+    right: 10px;
+    top: 10px;
+    opacity: 0.5;
+    cursor: pointer;
+    position: absolute;
+    color: white;
+    transition: all 0.3s ease-in-out;
+    &:hover {
+      opacity: 1;
+    }
+}
+
+.navigation_item > a {
+    cursor: pointer;
+    color: white;
+    &.active {
+      color: darken(#f31214, 10%);
+    }
+    &:hover {
+      background: none;
+      color: #f31214;
+      text-decoration: none;
+    }
+    &:focus {
+      background: none;
+      text-decoration: none;
+    }
+}
+
+.navigation_selection {
+    margin: auto 0;
+    display: block;
+    width: 180px;
+}
+
+.navigation_item {
+    list-style: none;
+    text-align: center;
+    color: #D8D8D8;
+    font-size: 14px;
+    padding: 12px 0;
+    border-bottom: solid 1px #D8D8D8;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.signup-login > button {
+    margin-top: 50px;
+    margin-left: 50px;
+    color: white;
+    &:hover {
+      color: #f31214;
+    }
+}
+
+.welcome-message {
+    margin-top: 100px;
+    text-align: center;
+    color: white;
+}
+
+.logout-button {
+    cursor: pointer;
+    color: white;
+    margin-top: 30px;
+    &:hover {
+      color: #f31214;
+    }
+}
+
+.hide_menu {
+    margin-left: -230px;
+}
+
+.opacity_one {
+    opacity: 1;
+    transition: all 0.3s ease-in-out;
 }

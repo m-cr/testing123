@@ -1,4 +1,4 @@
-<nav class="navbar navbar-static-top">
+<!-- <nav class="navbar navbar-static-top">
     <div class="container">
         <div class="navbar-header">
             <fullstack-logo></fullstack-logo>
@@ -14,4 +14,26 @@
             <a ng-click="logout()">Logout</a>
         </div>
     </div>
-</nav>
+</nav> -->
+
+<i class="fa fa-bars fa-2x toggle_menu"></i>
+<div class="sidebar_menu">
+    <i class="fa fa-times fa-lg"></i>
+    <div class="logo-image">
+        <fullstack-logo></fullstack-logo>
+    </div>
+    <ul class="navigation_selection">
+        <li ng-repeat="item in items" ng-show="!item.auth || isLoggedIn()" class="navigation_item">
+            <a ui-sref-active="active" ui-sref="{{ item.state }}">{{ item.label }}</a>
+        </li>
+    </ul>
+    <div class="signup-login">
+        <button ng-show="!user" ui-sref="login" class="btn">Signup/Login</button>
+    </div>
+    <div ng-show="user" class="welcome-message">
+        <span>Welcome, {{ (user.name) ? (user.name.split(" ")[0]) : (user.email) }}!</span>
+        <div class="logout">
+            <button ng-click="logout()" class="btn logout-button">Logout</button>
+        </div>
+    </div>
+</div>
