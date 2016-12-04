@@ -22,27 +22,24 @@ router.use('/challenges', require('./challenges'));
 router.post('/submit', function(req, res, next){
 	//create file
 	fs.writeFile('./testSpec.js', req.body.code, function (error) {
-		console.log(req.body.code);
-		if (error) return next(error);
+		// console.log(req.body.code);
+		if (error) console.log(error);
 		// run child process
 		var exec = require('child_process').exec;
 		exec('node_modules/mocha/bin/mocha ./testSpec.js', function (err, stdout, stderr) {
-			if (err) {
-				console.log('error');
-				console.log(typeof err);
-				console.log(err.stack)
+			if (stdout) {
+				res.send(stdout);
+			} else if (!stdout && err) {
+				console.log('error: ');
+				console.log(err);
+
 				var realError = {
 					message: 'Either your test code or start code has some sort of syntax error. Look at the error stack below to find out where.',
 					errStack: err.stack
 				};
 				res.send(realError);
-			}
-			else if (stderr) {
-				console.log('stderr');
-				console.log(stderr);
-				res.send(stderr);
-			} else {
-				res.send(stdout);
+			} else { 
+				console.log('else'); 
 			}
 		});
 	});
