@@ -1,20 +1,6 @@
-app.config(function($stateProvider){
+app.controller('ChallengeDetailsCtrl', function($scope, $http){
 
-	$stateProvider.state('individualChallenge', {
-		url: '/challenges/:id',
-		templateUrl: 'js/challenges/individual-challenge.html',
-		resolve: {
-			challenge: function($stateParams, Challenge){
-				return Challenge.findOne($stateParams.id);
-			}
-		},
-		controller: 'OneChallengeCtrl'
-	});
-
-});
-
-app.controller('OneChallengeCtrl', function($scope, challenge, $http){
-	$scope.challenge = challenge;
+	var $ctrl = this;
 
 	$scope.submit = function(code, testCode){
 		var newCode = `var mocha = require("mocha");\nvar expect = require("chai").expect;\n${code}\n${testCode}`;
