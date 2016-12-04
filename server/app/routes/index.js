@@ -27,7 +27,7 @@ router.post('/submit', function(req, res, next){
 		if (error) console.log(error);
 
 		var exec = require('child_process').exec;
-		exec('node_modules/mocha/bin/mocha ./testSpec.js', function (err, stdout, stderr) {
+		exec('node_modules/mocha/bin/mocha ./testSpec.js && rm ./testSpec.js', function (err, stdout, stderr) {
 			if (stdout) {
 				res.send(stdout);
 			} else if (!stdout && err) {
