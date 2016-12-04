@@ -21,8 +21,9 @@
 
   <input class="btn btn-primary" type="submit" value="Run Tests" ng-click="submit($ctrl.challenge.startCode, $ctrl.challenge.testCode)"></input>
   
-  <h3>Results:</h3>
-    <div class = "well well-lg">
+  <h3>Test Output:</h3>
+    <div ng-if="response" class="well well-lg" id="testoutput">
+    <!-- <div>{{response}}</div> -->
       <p ng-repeat='piece in response track by $index'>{{piece}}</p>
       <p ng-repeat='piece in longerResponse track by $index'>{{piece}}</p>
     </div>
