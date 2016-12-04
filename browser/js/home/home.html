@@ -2,10 +2,12 @@
     <fullstack-logo></fullstack-logo>
     <h1>Testing123</h1>
     <h3>The test code trainer.</h3>
-    <div align="center" style="padding-top: 10px">
-      <a ui-sref="tutorial({id: 1})">
-        <button class="btn btn-primary">Get Started</button>
-      </a>
-      <p style="padding-top: 10px"><em>Already have an account? <a href="/login">Login</a></em></p>
+    <div align="center" style="padding-top: 10px" ng-controller="NavbarCtrl">
+        <a ui-sref="tutorial({id: 1})">
+            <button class="btn btn-primary">Get Started</button>
+        </a>
+        <div ng-show="!user">
+            <p style="padding-top: 10px"><em>Already have an account? <a ui-sref="login">Login</a></em></p>
+        </div>
     </div>
 </section>
