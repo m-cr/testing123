@@ -11,7 +11,7 @@ app.factory('Challenge', function($http, Session, $state){
 			.then(function(response){
 				console.log('challenge created');
 				var createdChallenge = response.data;
-				$state.go("created", {id: createdChallenge.id});
+				$state.go('created', {id: createdChallenge.id});
 			});
 	};
 
