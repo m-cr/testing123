@@ -9,7 +9,7 @@
                 <input type="text" class="form-control" id="userLastName" placeholder="Enter your last name" ng-model="credentials.lastName" style="margin-bottom: 10px">
                 <label for="userEmail">Email Address</label><span style="color: #e32; display: inline;">*</span>
                 <input type="text" class="form-control" id="userEmail" placeholder="Enter your email" ng-model="credentials.email" required style="margin-bottom: 10px">
-                <p ng-show="existsEmail && credentials.email" style="color: red">User Already Exists!</p>
+                <p ng-show="existsEmail && credentials.email" style="color: red">Seems like you've registered before</p>
                 <label for="signup-password">Password</label><span style="color: #e32; display: inline;">*</span>
                 <input name="password" type="password" ng-model="credentials.password" class="form-control" id="signup-password" placeholder="Enter your password" required style="margin-bottom: 10px">
                 <label for="signup-password">Confirm Password</label><span style="color: #e32; display: inline;">*</span>
