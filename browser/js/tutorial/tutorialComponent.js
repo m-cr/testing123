@@ -106,6 +106,10 @@ app.component('tutorial', {
 			return that.index++;
 		};
 
+		this.rewind = function(){
+			return that.index--;
+		}
+
 		var getChallenge = function(){
 			Challenge.findOne(challengeIndex)
 			  .then(function(challenge){
@@ -132,4 +136,4 @@ app.animation('.slide', [function(){
 	 		       jQuery(element).fadeOut(1000, doneFn);
 	   }
 	}
-}])
+}]);
