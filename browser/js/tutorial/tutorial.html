@@ -1,4 +1,5 @@
 <div class="container">
+  <h1 align="center" style="margin-bottom: 20px">Tutorial</h1>
   <article ng-repeat="text in $ctrl.bodyText" ng-if="$ctrl.index === text.part">
     <p ng-repeat="paragraph in text.body" class="slide">{{paragraph}}</p>
     <div class="well" ng-if="text.code">
@@ -7,7 +8,15 @@
     <p ng-if="text.afterCode" ng-repeat="paragraph in text.afterCode" class="slide">{{paragraph}}</p>
     <challenge-details challenge="$parent.$ctrl.challenge" ng-if="text.challengeId"></challenge-details> 
   </article>
-  <div align="center" style="padding: 10px">
-    <button ng-click="$ctrl.advance($ctr.index)" class="btn btn-primary">Continue</button>
+  <div align="center"" style="padding: 10px">
+    <div ng-hide="$ctrl.index === 14">
+  	  <button ng-click="$ctrl.rewind()" class="btn" ng-hide="$ctrl.index === 0">Go Back</button>
+      <button ng-click="$ctrl.advance($ctr.index)" class="btn btn-primary">Continue</button>
+    </div>
+    <div ng-show="$ctrl.index === 14">
+	  <a ui-sref="challenges">
+	    <button class="btn btn-primary">Start Exploring</button>
+	  </a>
+    </div>
   </div>
 </div>
