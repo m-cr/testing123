@@ -21,12 +21,14 @@ app.controller('ChallengeDetailsCtrl', function($scope, Challenge){
 				} else {
 					$scope.response = output.split('\n');
 					if (output.length){
-						$scope.passing = $scope.response[$scope.response.length - 3];
+						$scope.passing = output.match(/(\d)( passing)/)[1];
+						$scope.failing = output.match(/(\d)( failing)/)[1];
 					}
 				}
 			});
-
 	};
+
+	$scope.completeChallenge = Challenge.completeChallenge;
 
 	$scope.testEditorOptions = {
 		lineNumbers: true,

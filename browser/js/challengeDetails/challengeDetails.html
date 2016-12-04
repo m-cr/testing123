@@ -27,6 +27,9 @@
       <p ng-repeat='piece in longerResponse track by $index'>{{piece}}</p>
     </div>
 
-  <p ng-show="passing">Passing: {{passing}}</p>
+  <h4 ng-if="passing">Passing: {{passing}}</h4>
+  <h4 ng-if="failing">Failing: {{failing}}</h4>
+
+  <input ng-if="passing && !failing && passing == $ctrl.challenge.required" ng-click="completeChallenge({challengeId: $ctrl.challenge.id, submission: $ctrl.challenge.testCode})" class="btn btn-primary" type="submit" value="Complete Challenge and View Solution"></input>
 
 </div>
