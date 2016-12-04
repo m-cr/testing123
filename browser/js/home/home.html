@@ -4,9 +4,9 @@
     <h3>The test code trainer.</h3>
     <div align="center" style="padding-top: 10px" ng-controller="NavbarCtrl">
         <a ui-sref="tutorial({id: 1})">
-            <button class="btn btn-primary">Get Started</button>
+            <button class="btn btn-primary get-started">Get Started</button>
         </a>
-        <div ng-show="!user">
+        <div ng-show="!user" class="home-login">
             <p style="padding-top: 10px"><em>Already have an account? <a ui-sref="login">Login</a></em></p>
         </div>
     </div>

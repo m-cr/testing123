@@ -10,13 +10,19 @@ app.directive('navbar', function () {
 });
 
 $(document).ready(function() {
-    $(".fa-times").click(function() {
+
+    setTimeout(function() {
         $(".sidebar_menu").addClass("hide_menu");
         $(".toggle_menu").addClass("opacity_one");
-    });
+    }, 3000);
 
     $(".toggle_menu").click(function() {
         $(".sidebar_menu").removeClass("hide_menu");
         $(".toggle_menu").removeClass("opacity_one");
+    });
+    
+    $(".fa-times").click(function() {
+        $(".sidebar_menu").addClass("hide_menu");
+        $(".toggle_menu").addClass("opacity_one");
     });
 });
