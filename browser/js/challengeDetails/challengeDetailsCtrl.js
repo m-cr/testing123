@@ -2,6 +2,10 @@ app.controller('ChallengeDetailsCtrl', function($scope, Challenge){
 
 	var $ctrl = this;
 
+	$scope.getChallenge = function(id){
+		return Challenge.findOne(id);
+	};
+
 	$scope.submit = function(code, testCode){
 
 		$scope.response = '';
