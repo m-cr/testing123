@@ -1,38 +1,34 @@
-app.controller('ChallengeDetailsCtrl', function($scope, $http){
+app.controller('ChallengeDetailsCtrl', function($scope, Challenge){
 
 	var $ctrl = this;
 
 	$scope.submit = function(code, testCode){
-		var newCode = `var mocha = require("mocha");\nvar expect = require("chai").expect;\n${code}\n${testCode}`;
-		// console.log(newCode);
-		return $http.post('/api/submit', {code: newCode})
-			.then(function(response){
-				$scope.response = '';
-				$scope.longerResponse = '';
-				console.log(response);
-				console.log(response.data);
-				if (response.data.message){
-					$scope.response = response.data.message.split('\n');
-					$scope.longerResponse = response.data.errStack.split('\n').slice(2);
+
+		$scope.response = '';
+		$scope.longerResponse = '';
+		$scope.passing = '';
+
+		return Challenge.submit(code, testCode)
+			.then(function(output){
+				console.log(output);
+				if (output.message){
+					$scope.response = output.message.split('\n');
+					$scope.longerResponse = output.errStack.split('\n').slice(2);
 				} else {
-					var output = response.data.split('\n');
-					$scope.response = output;
+					$scope.response = output.split('\n');
 					if (output.length){
-						$scope.passing = output[output.length - 3];
+						$scope.passing = $scope.response[$scope.response.length - 3];
 					}
 				}
 			});
-	};
 
-	// $scope.passing = 'test';
-	// if($scope.response){
-	// 	$scope.passing = $scope.response[$scope.response.length-1];
-	// }
+	};
 
 	$scope.testEditorOptions = {
 		lineNumbers: true,
 		mode: 'javascript'
 	};
+
 
 	$scope.codeEditorOptions = {
 		lineNumbers: true,
