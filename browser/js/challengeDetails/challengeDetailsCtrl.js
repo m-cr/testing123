@@ -17,8 +17,8 @@ app.controller('ChallengeDetailsCtrl', function($scope, $http){
 				} else {
 					var output = response.data.split('\n');
 					$scope.response = output;
-					if(output.length){
-						$scope.passing = output[output.length-3];
+					if (output.length){
+						$scope.passing = output[output.length - 3];
 					}
 				}
 			});

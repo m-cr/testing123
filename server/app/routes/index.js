@@ -38,8 +38,8 @@ router.post('/submit', function(req, res, next){
 					errStack: err.stack
 				};
 				res.send(realError);
-			} else { 
-				console.log('else'); 
+			} else {
+				console.log('else');
 			}
 		});
 	});

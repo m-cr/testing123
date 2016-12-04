@@ -1,6 +1,6 @@
 app.component('tutorialText', {
 	bindings: {},
-	template:`
+	template: `
 	  <div class="container">
 	    <p ng-if="$ctrl.index === 0" class="slide">Hello</p>
 	    <p ng-if="$ctrl.index === 1" class="slide">it's me</p>
