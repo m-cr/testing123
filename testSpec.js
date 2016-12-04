@@ -5,6 +5,6 @@ function foo(){
 }
 describe('foo', function(){
 	it ('should return bar', function(){
-		expect(foo()).to.equal('bar');
+		expect(foo()).to.equal('br';
 	});
 });
