@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <base href="/" />
     <title>Testing123</title>
@@ -22,16 +23,41 @@
     <script type="text/javascript" src="/codemirror/lib/codemirror.js"></script>
     <script src="/codemirror/mode/javascript/javascript.js"></script>
     <script src="/main.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+        setTimeout(function() {
+            $(".sidebar_menu").addClass("hide_menu");
+            $(".toggle_menu").addClass("opacity_one");
+        }, 1500);
+
+        $(".navigation_item, .signup-login, .welcome-message").click(function() {
+            setTimeout(function() {
+                $(".sidebar_menu").addClass("hide_menu");
+                $(".toggle_menu").addClass("opacity_one");
+            }, 500);
+        });
+
+        $(".toggle_menu").click(function() {
+            $(".sidebar_menu").removeClass("hide_menu");
+            $(".toggle_menu").removeClass("opacity_one");
+        });
+
+        $(".fa-times").click(function() {
+            $(".sidebar_menu").addClass("hide_menu");
+            $(".toggle_menu").addClass("opacity_one");
+        });
+    });
+    </script>
 </head>
 
 <body ng-app="FullstackGeneratedApp">
     <navbar></navbar>
     <div id="main" ui-view></div>
 </body>
-
 <!-- <footer align="center">
     <span><a ui-sref="about">About</a> || </span>
     <span><a ui-sref="about">Contact</a> || </span>
     <a href="https://github.com/FullstackAcademy/fsg"> Powered by FSG</a>
 </footer> -->
+
 </html>
