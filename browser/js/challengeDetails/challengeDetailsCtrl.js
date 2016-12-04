@@ -1,4 +1,11 @@
-app.controller('ChallengeDetailsCtrl', function($scope, Challenge){
+app.controller('ChallengeDetailsCtrl', function($scope, Challenge, Session){
+
+	if (Session.user) $scope.loggedIn = true;
+
+	$scope.toggleSolution = function(){
+		if (!$scope.solution) $scope.solution = true;
+		else $scope.solution = false;
+	};
 
 	var $ctrl = this;
 
