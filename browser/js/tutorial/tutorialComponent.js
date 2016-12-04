@@ -94,7 +94,27 @@ app.component('tutorial', {
 		}, {
 			part: 10,
 			challengeId: 4
+		}, {
+			part: 11,
+			body: [`Let’s stay with this code to learn something about the 'equal' assertion we used before.`, `Continue on to the next challenge.`]
+		}, {
+			part: 12,
+			challengeId: 5
+		}, {
+			part: 13,
+			body: [
+			  `You must have noticed that our first test case failed when we used the 'equal' assertion, and passed when we used 'eql'.`,
+			  `That's because 'equal' tests to see if there is 'strict' equality, like the  '===' operator. 'eql' tests for deep equality.`,
+			  `Alernatively, you can force 'equal' to check for deep equality by using the chain 'to.deep.equal'.`
+			]
+		}, {
+			part: 14,
+			body: [
+			  `Now you know some basics of testing Javascript code using Mocha and Chai including 'describe' blocks, 'it' test cases, and a few assertions.`,
+			  `Be proud! You've come a long way. Now spend time time exploring the other challenges on the site and maybe contribute a few of your own.`
+			]
 		}
+
 
 		];
 
@@ -104,6 +124,10 @@ app.component('tutorial', {
 				getChallenge();
 			}
 			return that.index++;
+		};
+
+		this.rewind = function(){
+			return that.index--;
 		};
 
 		var getChallenge = function(){
