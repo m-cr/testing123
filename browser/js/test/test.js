@@ -12,7 +12,7 @@ app.controller('TestCtrl', function($scope, $http){
 
 	$scope.submit = function(code, testCode){
 		var newCode = `var mocha = require("mocha");\nvar expect = require("chai").expect;\n${code}\n${testCode}`;
-		// console.log(newCode);
+		console.log(newCode);
 		return $http.post('/api/submit', {code: newCode})
 			.then(function(response){
 				$scope.response = '';
