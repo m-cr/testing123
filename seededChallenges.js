@@ -69,7 +69,7 @@ var seededChallenges = [
 	  title: `Intro to 'have' and 'lengthOf'`,
 	  description: 'Learn to test the length property of a target.',
 	  authorId: 1,
-	  required: 1 
+	  required: 2 
 	},{
 	  startCode: `var arr = [0,1,2,3,4];\nvar newArr = arr.slice(0, 2);`,
 	  testCode: 
@@ -92,7 +92,7 @@ var seededChallenges = [
 	  title: `'Equal' vs 'eql'`,
 	  description: 'Test a common array method to learn the difference between "equal" and "eql".',
 	  authorId: 1,
-	  required: 1 
+	  required: 2 
 	}
 ];
 

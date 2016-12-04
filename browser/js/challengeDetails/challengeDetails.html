@@ -31,6 +31,6 @@
   <h4 ng-if="passing">Passing: {{passing}}</h4>
   <h4 ng-if="failing">Failing: {{failing}}</h4>
 
-  <input ng-if="passing && !failing && passing == $ctrl.challenge.required" ng-click="completeChallenge({challengeId: $ctrl.challenge.id, submission: $ctrl.challenge.testCode})" class="btn btn-primary" type="submit" value="Complete Challenge and View Solution"></input>
+  <input ng-if="!$parent.$ctrl.index && passing && !failing && passing == $ctrl.challenge.required" ng-click="completeChallenge({challengeId: $ctrl.challenge.id, submission: $ctrl.challenge.testCode})" class="btn btn-primary" type="submit" value="Complete Challenge and View Solution"></input>
 
 </div>
