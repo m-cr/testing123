@@ -21,6 +21,9 @@
   <h5>This is the output of your tests:</h5>
     <div class = "well well-lg">
       <p ng-repeat='piece in response track by $index'>{{piece}}</p>
+      <hr>
+      <p ng-repeat='piece in longerResponse track by $index'>{{piece}}</p>
     </div>
+  <p ng-show="passing">Passing: {{passing}}</p>
 
 </div>

@@ -1,0 +1,24 @@
+<div class="container-fluid">
+    <div class="well">
+        <form id="signup-form" name="signupForm" ng-submit="signupForm.$valid && signUp()">
+            <h3 style='margin-bottom: 30px'>Sign Up</h3>
+            <div class="form-group">
+                <label for="userFirstName">First Name</label>
+                <input type="text" class="form-control" id="userFirstName" placeholder="Enter your first name" ng-model="credentials.firstName" style="margin-bottom: 10px">
+                <label for="userLastName">Last Name</label>
+                <input type="text" class="form-control" id="userLastName" placeholder="Enter your last name" ng-model="credentials.lastName" style="margin-bottom: 10px">
+                <label for="userEmail">Email Address</label><span style="color: #e32; display: inline;">*</span>
+                <input type="text" class="form-control" id="userEmail" placeholder="Enter your email" ng-model="credentials.email" required style="margin-bottom: 10px">
+                <p ng-show="existsEmail && credentials.email" style="color: red">Seems like you've registered before</p>
+                <label for="signup-password">Password</label><span style="color: #e32; display: inline;">*</span>
+                <input name="password" type="password" ng-model="credentials.password" class="form-control" id="signup-password" placeholder="Enter your password" required style="margin-bottom: 10px">
+                <label for="signup-password">Confirm Password</label><span style="color: #e32; display: inline;">*</span>
+                <input name="confirmPassword" type="password" ng-model="credentials.confirm" class="form-control" id="signup-password-2" placeholder="Re-enter your password" required match-password="password" style="margin-bottom: 10px">
+                <div ng-messages="signupForm.confirmPassword.$error" ng-if="signupForm.confirmPassword.$error.passwordMatch" ng-messages-multiple="ng-messages-multiple" class="error-messages slide-right">
+                    <div ng-message="passwordMatch" class="message slide-left" style="color: red">Your passwords did not match</div>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Sign Up</button>
+        </form>
+    </div>
+</div>
