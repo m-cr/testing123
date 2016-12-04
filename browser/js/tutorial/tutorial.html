@@ -1,11 +1,11 @@
 <div class="container">
   <h1 align="center" style="margin-bottom: 20px">Tutorial</h1>
   <article ng-repeat="text in $ctrl.bodyText" ng-if="$ctrl.index === text.part">
-    <p ng-repeat="paragraph in text.body" class="slide">{{paragraph}}</p>
+    <p ng-repeat="paragraph in text.body">{{paragraph}}</p>
     <div class="well" ng-if="text.code">
       <ui-codemirror ui-codemirror-opts="$ctrl.codeEditorOptions" ng-model="text.code"></ui-codemirror>
     </div>
-    <p ng-if="text.afterCode" ng-repeat="paragraph in text.afterCode" class="slide">{{paragraph}}</p>
+    <p ng-if="text.afterCode" ng-repeat="paragraph in text.afterCode">{{paragraph}}</p>
     <challenge-details challenge="$parent.$ctrl.challenge" ng-if="text.challengeId"></challenge-details> 
   </article>
   <div align="center"" style="padding: 10px">
