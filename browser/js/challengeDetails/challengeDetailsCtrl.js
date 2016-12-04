@@ -1,6 +1,10 @@
-app.controller('ChallengeDetailsCtrl', function($scope, $http){
+app.controller('ChallengeDetailsCtrl', function($scope, $http, Challenge){
 
 	var $ctrl = this;
+
+	$scope.getChallenge = function(id){
+		return Challenge.findOne(id);
+	};
 
 	$scope.submit = function(code, testCode){
 		var newCode = `var mocha = require("mocha");\nvar expect = require("chai").expect;\n${code}\n${testCode}`;
