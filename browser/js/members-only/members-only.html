@@ -1,31 +1,29 @@
 <div class="container">
-	<h1>Your Profile</h1>
-
-	<div class="well">
-		<h3>Name: {{member.name}}</h3>	
-		<h3>Email: {{member.email}}</h3>
-		<h3>Score: {{member.score}}</h3>
+	<h1 align="center">Your Profile</h1>
+	<hr>
+	<div align="center">
+		<h4>{{member.name}} || {{member.email}} || Score: {{member.score}}</h4>	
 	</div>
 	<hr>
 
 	<h2>Completed Challenges</h2>
 	<ul class="list-group">
 		<li class="list-group-item" ng-repeat="trophy in completedChallenges">
-			<p><strong>Title: <a ui-sref="challengeDetail({id: trophy.challenge.id})">{{trophy.challenge.title}}</strong></a></p>
+			<p><strong>Title: <a ui-sref="completed({id: trophy.challenge.id})">{{trophy.challenge.title}}</strong></a></p>
 			<p>Difficulty: {{trophy.challenge.difficulty}}</p>
 			<p>Description: {{triphy.challenge.description}}</p>
-			<button class="btn btn-default" ui-sref="challengeDetail({id: trophy.challenge.id})">Go To This Challenge</button>
+			<button class="btn btn-default" ui-sref="completed({id: trophy.challenge.id})">View Solution</button>
 		</li>
 	</ul>
 	<hr>
 
 	<h2>Created Challenges</h2>
 	<ul class="list-group">
-		<li class="list-group-item" ng-repeat="challenge in createdChallenges">
+		<li style="margin: 10px;" class="list-group-item" ng-repeat="challenge in createdChallenges">
 			<p><strong>Title: <a ui-sref="challengeDetail({id: challenge.id})">{{challenge.title}}</strong></a></p>
 			<p>Difficulty: {{challenge.difficulty}}</p>
 			<p>Description: {{challenge.description}}</p>
-			<button class="btn btn-default" ui-sref="challengeDetail({id: challenge.id})">Go To This Challenge</button>
+			<button class="btn btn-default" ui-sref="challengeDetail({id: challenge.id})">View Challenge</button>
 		</li>
 	</ul>
 
