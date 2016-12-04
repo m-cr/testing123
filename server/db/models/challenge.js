@@ -29,5 +29,9 @@ module.exports = db.define('challenge', {
   description: {
     type: Sequelize.TEXT,
     allowNull: false
+  },
+  required: {
+    type: Sequelize.INTEGER,
+    allowNull: false
   }
 });

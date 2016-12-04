@@ -16,7 +16,6 @@ var ensureAuthenticated = function (req, res, next) {
 };
 
 router.post('/', ensureAuthenticated, function(req, res, next){
-	// console.log(req.body);
 
 	var newChallenge = req.body;
 

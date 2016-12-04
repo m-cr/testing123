@@ -13,7 +13,8 @@ var seededChallenges = [
 	  difficulty: 'Beginner',
 	  title: 'Foo Returns Bar',
 	  description: 'a simple unit test to help you get started',
-	  authorId: 1
+	  authorId: 1,
+	  required: 1
 	},{
 	  startCode: 
 	    `var foo = function(){\n  return 'bar';\n};`,
@@ -29,7 +30,8 @@ var seededChallenges = [
 	  difficulty: 'Beginner',
 	  title: 'Writing Your First Describe Block',
 	  description: 'Get familiar with a basic building block of test code.',
-	  authorId: 1
+	  authorId: 1,
+	  required: 1
 	},{
 	  startCode:
 	    `//Here is a simple function that takes an integer,\n//adds 1, and returns the result.\n\n`
@@ -46,7 +48,8 @@ var seededChallenges = [
 	  difficulty: 'Beginner',
 	  title: 'Building Basic Test Cases',
 	  description: 'Complete a basic it-block and some simple assertions.',
-	  authorId: 1 
+	  authorId: 1,
+	  required: 1 
 	}, {
 	  startCode:
 	    `var arr = [0, 1, 2, 3, 4];\nvar newArr = arr.slice(0, 2);`,
@@ -65,7 +68,8 @@ var seededChallenges = [
 	  difficulty: 'Beginner',
 	  title: `Intro to 'have' and 'lengthOf'`,
 	  description: 'Learn to test the length property of a target.',
-	  authorId: 1
+	  authorId: 1,
+	  required: 1 
 	},{
 	  startCode: `var arr = [0,1,2,3,4];\nvar newArr = arr.slice(0, 2);`,
 	  testCode: 
@@ -87,7 +91,8 @@ var seededChallenges = [
 	  difficulty: 'Beginner',
 	  title: `'Equal' vs 'eql'`,
 	  description: 'Test a common array method to learn the difference between "equal" and "eql".',
-	  authorId: 1
+	  authorId: 1,
+	  required: 1 
 	}
 ];
 
