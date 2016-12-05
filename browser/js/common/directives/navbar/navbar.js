@@ -9,7 +9,7 @@ app.directive('navbar', function() {
 
 });
 
-$(document).ready(function() {
+$(document).on("page:load ready", function() {
 
     var appear = function(){
         $(".sidebar_menu").animate({ 'margin-left':'0px' }, 50, () => {} );
