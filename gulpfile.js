@@ -135,27 +135,25 @@ gulp.task('buildCSSProduction', function () {
         .pipe(gulp.dest('./public'))
 });
 
-// ADDED...
+// // ADDED...
 
- gulp.task('scripts', function () {
-      return gulp.src(['./browser/js/app.js', './browser/js/**/*.js'])
-        .pipe(babel({ presets: ['es2015'] }))
-        .pipe(uglify().on('error', function(e){
-            console.log(e);
-         }))
-        .pipe(gulp.dest('./public/_public'));
-  });
+//  gulp.task('scripts', function () {
+//       return gulp.src(['./browser/js/app.js', './browser/js/**/*.js'])
+//         .pipe(babel({ presets: ['es2015'] }))
+//         .pipe(uglify().on('error', function(e){
+//             console.log(e);
+//          }))
+//         .pipe(gulp.dest('./public/_public'));
+//   });
 
-// ADDED^^^
+// // ADDED^^^
 
 gulp.task('buildJSProduction', function () {
     return gulp.src(['./browser/js/app.js', './browser/js/**/*.js'])
         .pipe(concat('main.js'))
-        .pipe(babel({
-            presets: ['es2015']
-        }))
+        .pipe(babel({ presets: ['es2015'] }))
         .pipe(ngAnnotate())
-        .pipe(uglify())
+        .pipe(uglify().on('error', function(e){console.log(e);} ))
         .pipe(gulp.dest('./public'));
 });
 
@@ -167,7 +165,7 @@ gulp.task('buildProduction', ['buildCSSProduction', 'buildJSProduction']);
 //ADDED SCRIPTS
 gulp.task('build', function () {
     if (process.env.NODE_ENV === 'production') {
-        runSeq(['scripts'/*, 'buildJSProduction', 'buildCSSProduction'*/]);
+        runSeq([/*'scripts',*/ 'buildJSProduction', 'buildCSSProduction']);
     } else {
         runSeq(['buildJS', 'buildCSS']);
     }
