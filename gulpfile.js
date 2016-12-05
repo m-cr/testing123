@@ -137,7 +137,7 @@ gulp.task('buildCSSProduction', function () {
 
 // ADDED...
 
- gulp.task('scripts', ['clean'], function () {
+ gulp.task('scripts', function () {
       return gulp.src(['./browser/js/app.js', './browser/js/**/*.js'])
         .pipe(uglify().on('error', function(e){
             console.log(e);
