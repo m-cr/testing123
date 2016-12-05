@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" id="tutorial">
   <h1 align="center" style="margin-bottom: 20px">Tutorial</h1>
   <article ng-repeat="text in $ctrl.bodyText" ng-if="$ctrl.index === text.part">
     <p ng-repeat="paragraph in text.body">{{paragraph}}</p>
