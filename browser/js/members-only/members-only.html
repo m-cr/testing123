@@ -6,25 +6,29 @@
 	</div>
 	<hr>
 
-	<h2>Completed Challenges</h2>
-	<ul class="list-group">
-		<li class="list-group-item" ng-repeat="trophy in completedChallenges">
-			<p><strong>Title: <a ui-sref="completed({id: trophy.challenge.id})">{{trophy.challenge.title}}</strong></a></p>
-			<p>Difficulty: {{trophy.challenge.difficulty}}</p>
-			<p>Description: {{triphy.challenge.description}}</p>
-			<button class="btn btn-default" ui-sref="completed({id: trophy.challenge.id})">View Solution</button>
-		</li>
-	</ul>
+	<div class="col-md-6">
+		<h2>Completed Challenges</h2>
+		<ul class="list-group">
+			<li class="list-group-item" ng-repeat="trophy in completedChallenges">
+				<p><strong>Title: <a ui-sref="completed({id: trophy.challenge.id})">{{trophy.challenge.title}}</strong></a></p>
+				<p>Difficulty: {{trophy.challenge.difficulty}}</p>
+				<p>Description: {{triphy.challenge.description}}</p>
+				<button class="btn btn-default" ui-sref="completed({id: trophy.challenge.id})">View Solution</button>
+			</li>
+		</ul>
 	<hr>
+	</div>
 
-	<h2>Created Challenges</h2>
-	<ul class="list-group">
-		<li style="margin: 10px;" class="list-group-item" ng-repeat="challenge in createdChallenges">
-			<p><strong>Title: <a ui-sref="challengeDetail({id: challenge.id})">{{challenge.title}}</strong></a></p>
-			<p>Difficulty: {{challenge.difficulty}}</p>
-			<p>Description: {{challenge.description}}</p>
-			<button class="btn btn-default" ui-sref="challengeDetail({id: challenge.id})">View Challenge</button>
-		</li>
-	</ul>
+	<div class="col-md-6">
+		<h2>Created Challenges</h2>
+		<ul class="list-group">
+			<li style="margin: 10px;" class="list-group-item" ng-repeat="challenge in createdChallenges">
+				<p><strong>Title: <a ui-sref="challengeDetail({id: challenge.id})">{{challenge.title}}</strong></a></p>
+				<p>Difficulty: {{challenge.difficulty}}</p>
+				<p>Description: {{challenge.description}}</p>
+				<button class="btn btn-default" ui-sref="challengeDetail({id: challenge.id})">View Challenge</button>
+			</li>
+		</ul>
+	</div>
 
 </div>

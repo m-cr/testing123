@@ -18,15 +18,17 @@ var ensureAuthenticated = function (req, res, next) {
 router.post('/', ensureAuthenticated, function(req, res, next){
 
 	var newChallenge = req.body;
+	console.log(newChallenge);
 
 	Challenge.create({
 		title: newChallenge.title,
 		difficulty: newChallenge.difficulty,
 		description: newChallenge.description,
-		startCode: newChallenge.code,
+		startCode: newChallenge.startCode,
 		testCode: newChallenge.testCode,
 		solution: newChallenge.solution,
-		authorId: req.user.id
+		authorId: req.user.id,
+		required: newChallenge.required
 	})
 	.then(function(challenge){
 		// console.log(challenge);

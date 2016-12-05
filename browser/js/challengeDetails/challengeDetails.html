@@ -8,16 +8,20 @@
   <hr>
 </section>  
 
-  <h3>Code:</h3>
-    <div class="well">
-      <ui-codemirror ng-if="$ctrl.challenge.solution" ui-codemirror-opts="codeEditorOptions" ng-model="$ctrl.challenge.startCode"></ui-codemirror>
-      <ui-codemirror ng-if="!$ctrl.challenge.solution" ui-codemirror-opts="testEditorOptions" ng-model="$ctrl.challenge.startCode"></ui-codemirror>
-    </div>
+  <div class="col-md-6" id="code">
+    <h3>Code:</h3>
+      <div class="well code">
+        <ui-codemirror ng-if="$ctrl.challenge.solution" ui-codemirror-opts="codeEditorOptions" ng-model="$ctrl.challenge.startCode"></ui-codemirror>
+        <ui-codemirror ng-if="!$ctrl.challenge.solution" ui-codemirror-opts="testEditorOptions" ng-model="$ctrl.challenge.startCode"></ui-codemirror>
+      </div>
+  </div class="col-md-6">
   
-  <h3>Test Code:</h3>
-    <div class="well">
-      <ui-codemirror ui-codemirror-opts="testEditorOptions" ng-model="$ctrl.challenge.testCode"></ui-codemirror>
-    </div>
+  <div class="col-md-6" id="testcode">
+    <h3>Test Code:</h3>
+      <div class="well testcode">
+        <ui-codemirror ui-codemirror-opts="testEditorOptions" ng-model="$ctrl.challenge.testCode"></ui-codemirror>
+      </div>
+  </div class="col-md-6">
 
   <input class="btn btn-primary" type="submit" value="Run Tests" ng-click="submit($ctrl.challenge.startCode, $ctrl.challenge.testCode)"></input>
   
