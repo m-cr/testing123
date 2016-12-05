@@ -166,7 +166,7 @@ gulp.task('buildProduction', ['buildCSSProduction', 'buildJSProduction']);
 //ADDED SCRIPTS
 gulp.task('build', function () {
     if (process.env.NODE_ENV === 'production') {
-        runSeq(['scripts', 'buildJSProduction', 'buildCSSProduction']);
+        runSeq(['scripts'/*, 'buildJSProduction', 'buildCSSProduction'*/]);
     } else {
         runSeq(['buildJS', 'buildCSS']);
     }
