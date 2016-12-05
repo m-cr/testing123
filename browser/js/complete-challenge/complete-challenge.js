@@ -3,7 +3,7 @@ app.config(function($stateProvider){
 	$stateProvider.state('completed', {
 		url: '/completed/:id',
 		templateUrl: '/js/complete-challenge/complete-challenge.html',
-		resolve: { /** @ngInject */
+		resolve: {
 			challenge: function($stateParams, Challenge){
 				return Challenge.findOne($stateParams.id);
 			},

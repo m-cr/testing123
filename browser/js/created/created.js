@@ -2,7 +2,7 @@ app.config(function($stateProvider){
 	$stateProvider.state('created', {
 		url: '/created/:id',
 		templateUrl: '/js/created/created.html',
-		resolve: { /** @ngInject */
+		resolve: {
 			challenge: function($stateParams, Challenge){
 				return Challenge.findOne($stateParams.id);
 			}
