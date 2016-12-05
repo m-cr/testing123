@@ -135,6 +135,18 @@ gulp.task('buildCSSProduction', function () {
         .pipe(gulp.dest('./public'))
 });
 
+// ADDED...
+
+ gulp.task('scripts', ['clean'], function () {
+      return gulp.src(['./browser/js/app.js', './browser/js/**/*.js'])
+        .pipe(uglify().on('error', function(e){
+            console.log(e);
+         }))
+        .pipe(gulp.dest('./public/_public'));
+  });
+
+// ADDED^^^
+
 gulp.task('buildJSProduction', function () {
     return gulp.src(['./browser/js/app.js', './browser/js/**/*.js'])
         .pipe(concat('main.js'))
@@ -151,9 +163,10 @@ gulp.task('buildProduction', ['buildCSSProduction', 'buildJSProduction']);
 // Composed tasks
 // --------------------------------------------------------------
 
+//ADDED SCRIPTS
 gulp.task('build', function () {
     if (process.env.NODE_ENV === 'production') {
-        runSeq(['buildJSProduction', 'buildCSSProduction']);
+        runSeq(['scripts', 'buildJSProduction', 'buildCSSProduction']);
     } else {
         runSeq(['buildJS', 'buildCSS']);
     }
