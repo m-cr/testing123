@@ -18,6 +18,7 @@ app.controller('ChallengeDetailsCtrl', function($scope, Challenge, Session){
 		$scope.response = '';
 		$scope.longerResponse = '';
 		$scope.passing = '';
+		$scope.failing = '';
 
 		return Challenge.submit(code, testCode)
 			.then(function(output){
