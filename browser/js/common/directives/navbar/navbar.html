@@ -1,23 +1,5 @@
-<!-- <nav class="navbar navbar-static-top">
-    <div class="container">
-        <div class="navbar-header">
-            <fullstack-logo></fullstack-logo>
-        </div>
-        <ul class="nav navbar-nav">
-            <li ng-repeat="item in items" ng-show="!item.auth || isLoggedIn()">
-                <a ui-sref-active="active" ui-sref="{{ item.state }}">{{ item.label }}</a>
-            </li>
-        </ul>
-        <button ng-show="!user" ui-sref="login" class="btn login-button">Signup/Login</button>
-        <div ng-show="user" class="welcome">
-            <span>Welcome, {{ (user.name) ? (user.name.split(" ")[0]) : (user.email) }}!</span>
-            <a ng-click="logout()">Logout</a>
-        </div>
-    </div>
-</nav> -->
-
-<i class="fa fa-bars fa-2x toggle_menu"></i>
-<div class="sidebar_menu">
+<i class="fa fa-bars fa-2x toggle_menu opacity_one"></i>
+<div class="sidebar_menu hide_menu">
     <i class="fa fa-times fa-lg"></i>
     <div class="logo-image">
         <fullstack-logo></fullstack-logo>
