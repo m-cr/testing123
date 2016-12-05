@@ -3,7 +3,7 @@ app.config(function($stateProvider){
 	$stateProvider.state('test', {
 		url: '/test',
 		templateUrl: '/js/test/test.html',
-		resolve: {
+		resolve: { /* @ngInject */
 			challenge: function(){
 				return {
 					startCode: "function foo(){\n  return 'bar';\n}",
