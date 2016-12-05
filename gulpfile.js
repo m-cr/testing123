@@ -135,19 +135,6 @@ gulp.task('buildCSSProduction', function () {
         .pipe(gulp.dest('./public'))
 });
 
-// // ADDED...
-
-//  gulp.task('scripts', function () {
-//       return gulp.src(['./browser/js/app.js', './browser/js/**/*.js'])
-//         .pipe(babel({ presets: ['es2015'] }))
-//         .pipe(uglify().on('error', function(e){
-//             console.log(e);
-//          }))
-//         .pipe(gulp.dest('./public/_public'));
-//   });
-
-// // ADDED^^^
-
 gulp.task('buildJSProduction', function () {
     return gulp.src(['./browser/js/app.js', './browser/js/**/*.js'])
         .pipe(concat('main.js'))
