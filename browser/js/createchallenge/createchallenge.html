@@ -12,12 +12,12 @@
 
 		<h3>Difficulty:</h3>
 		<select ng-model="challenge.difficulty" ng-options="d for d in difficulties"></select>
-		<!-- <input type="text" name="difficulty" ng-model="challenge.difficulty"> -->
+
 	</div>
 
 	<h3>Code to be tested:</h3>
 		<div class="well">
-		  <ui-codemirror ui-codemirror-opts="codeEditorOptions" ng-model="challenge.code"></ui-codemirror>
+		  <ui-codemirror ui-codemirror-opts="codeEditorOptions" ng-model="challenge.startCode"></ui-codemirror>
 		</div>
 
 	<h3>Start Test Code:</h3>
@@ -30,7 +30,7 @@
 		  <ui-codemirror ui-codemirror-opts="testEditorOptions" ng-model="challenge.solution"></ui-codemirror>
 		</div>
 
-	<input class="btn btn-primary" value='Submit Your Challenge' type="submit" ng-click="submit(challenge)"></input>
+	<input class="btn btn-primary" value='Submit Your Challenge' type="submit" ng-click="create(challenge)"></input>
 	<br><br>
 	
 </div>

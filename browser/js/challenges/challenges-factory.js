@@ -1,18 +1,27 @@
 app.factory('Challenge', function($http, Session, $state){
-
+	
 	var Challenge = {};
-
 	var challenges = [];
 	var challenge = {};
 
 	Challenge.create = function(newChallenge){
-		console.log('factory function');
-		return $http.post('/api/challenges', newChallenge)
+		
+		// var _newChallenge = newChallenge;
+		console.log(newChallenge);
+		
+		return Challenge.submit(newChallenge.startCode, newChallenge.solution)
+			.then(function(response){
+				var required = response.match(/(\d)( passing)/)[1];
+				newChallenge.required = required;
+				console.log('newChallenge');
+				console.log(newChallenge);
+				return $http.post('/api/challenges', newChallenge);
+			})
 			.then(function(response){
 				console.log('challenge created');
 				var createdChallenge = response.data;
 				$state.go('created', {id: createdChallenge.id});
-			});
+			});				
 	};
 
 	Challenge.findAll = function(){

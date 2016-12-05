@@ -4,7 +4,7 @@ app.config(function ($stateProvider) {
         url: '/challenges',
         controller: 'ChallengesController',
         templateUrl: 'js/challenges/challenges.html',
-        resolve: {
+        resolve: { /** @ngInject */
             challenges: function(Challenge){
                 return Challenge.findAll();
             }

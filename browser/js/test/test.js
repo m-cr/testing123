@@ -5,7 +5,7 @@ app.config(function($stateProvider){
 		templateUrl: '/js/test/test.html',
 		resolve: {
 			challenge: function(){
-				return {
+				return { /** @ngInject */
 					startCode: "function foo(){\n  return 'bar';\n}",
 					testCode: "describe('foo', function(){\n  it ('should return bar', function(){\n    expect(foo()).to.equal('bar');\n  });\n});"
 				};

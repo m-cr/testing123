@@ -1,23 +1,32 @@
 <div class="container">
 
-<section ng-if="$ctrl.challenge.solution">
-  <h1 align="center">Challenge: {{$ctrl.challenge.title}}</h1>
-  <h5 align="center">Description: {{$ctrl.challenge.description}}</h5>
-  <h5 align="center">Difficulty: {{$ctrl.challenge.difficulty}}</h5>
-  <h5 align="center">Author: {{$ctrl.challenge.author.name}}</h5>
-  <hr>
-</section>  
+  <section ng-if="$ctrl.challenge.solution">
+    <h1 align="center">Challenge: {{$ctrl.challenge.title}}</h1>
+    <h5 align="center">Description: {{$ctrl.challenge.description}}</h5>
+    <h5 align="center">Difficulty: {{$ctrl.challenge.difficulty}}</h5>
+    <h5 align="center">Author: {{$ctrl.challenge.author.name}}</h5>
+    <hr>
+  </section>  
 
-  <h3>Code:</h3>
-    <div class="well">
-      <ui-codemirror ng-if="$ctrl.challenge.solution" ui-codemirror-opts="codeEditorOptions" ng-model="$ctrl.challenge.startCode"></ui-codemirror>
-      <ui-codemirror ng-if="!$ctrl.challenge.solution" ui-codemirror-opts="testEditorOptions" ng-model="$ctrl.challenge.startCode"></ui-codemirror>
+  <div>
+
+    <div class="col-md-6 col-sm-12" id="code">
+      <h3>Code:</h3>
+        <div class="well code">
+          <ui-codemirror ng-if="$ctrl.challenge.solution" ui-codemirror-opts="codeEditorOptions" ng-model="$ctrl.challenge.startCode"></ui-codemirror>
+          <ui-codemirror ng-if="!$ctrl.challenge.solution" ui-codemirror-opts="testEditorOptions" ng-model="$ctrl.challenge.startCode"></ui-codemirror>
+        </div>
     </div>
-  
-  <h3>Test Code:</h3>
-    <div class="well">
-      <ui-codemirror ui-codemirror-opts="testEditorOptions" ng-model="$ctrl.challenge.testCode"></ui-codemirror>
+    
+
+    <div class="col-md-6 col-sm-12" id="testcode">
+      <h3>Test Code:</h3>
+        <div class="well testcode">
+          <ui-codemirror ui-codemirror-opts="testEditorOptions" ng-model="$ctrl.challenge.testCode"></ui-codemirror>
+        </div>
     </div>
+
+  </div>
 
   <input class="btn btn-primary" type="submit" value="Run Tests" ng-click="submit($ctrl.challenge.startCode, $ctrl.challenge.testCode)"></input>
   
