@@ -24,7 +24,7 @@
     <script src="/main.js"></script>
     <script type="text/javascript">
     
-        window.onload = function() {
+        $(document).ready(function() {
 
             var appear = function(){
                 $(".sidebar_menu").animate({ 'margin-left':'0px' }, 50, () => {} );
@@ -45,7 +45,7 @@
             $(".fa-times").click(disappear);
 
             $(".sidebar_menu").click(disappear);
-        };
+        });
 
     </script>
 </head>
