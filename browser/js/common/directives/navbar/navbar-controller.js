@@ -8,6 +8,16 @@ app.controller('NavbarCtrl', function($rootScope, $state, $scope, AuthService, A
         { label: 'Profile', state: 'membersOnly', auth: true }
     ];
 
+    $scope.hideMenu = () => {
+        $scope.hidden = true;
+    };
+    
+    $scope.showMenu = () => {
+        $scope.hidden = false;
+    };
+
+    $scope.hidden = true;
+
     $scope.user = null;
 
     $scope.isLoggedIn = function() {
