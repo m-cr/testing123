@@ -42,7 +42,7 @@
 
   <input ng-if="!$parent.$ctrl.index && passing && !failing && passing == $ctrl.challenge.required && loggedIn" ng-click="completeChallenge({challengeId: $ctrl.challenge.id, submission: $ctrl.challenge.testCode})" class="btn btn-primary" type="submit" value="Complete Challenge and View Solution"></input>
 
-  <input ng-if="!$parent.$ctrl.index && !loggedIn" ng-click="toggleSolution()" class="btn btn-primary" type="submit" value="View Solution"></input>
+  <input ng-if="!$parent.$ctrl.index && !loggedIn && $ctrl.challenge.solution" ng-click="toggleSolution()" class="btn btn-primary" type="submit" value="View Solution"></input>
 
   <div ng-show="solution">
     <h3>Solution:</h3>
