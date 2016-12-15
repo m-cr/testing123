@@ -40,7 +40,6 @@ app.controller('ChallengeDetailsCtrl', function($scope, Challenge, Session){
 
 	$scope.testEditorOptions = {
 		lineNumbers: true,
-		lineWrapping: true,
 		mode: 'javascript'
 	};
 
@@ -48,7 +47,6 @@ app.controller('ChallengeDetailsCtrl', function($scope, Challenge, Session){
 	$scope.codeEditorOptions = {
 		lineNumbers: true,
 		mode: 'javascript',
-		lineWrapping: true,
 		readOnly: 'nocursor'
 	};
 

@@ -12,11 +12,10 @@
 			<li class="list-group-item" ng-repeat="trophy in completedChallenges">
 				<p><strong>Title: <a ui-sref="completed({id: trophy.challenge.id})">{{trophy.challenge.title}}</strong></a></p>
 				<p>Difficulty: {{trophy.challenge.difficulty}}</p>
-				<p>Description: {{triphy.challenge.description}}</p>
+				<p>Description: {{trophy.challenge.description}}</p>
 				<button class="btn btn-default" ui-sref="completed({id: trophy.challenge.id})">View Solution</button>
 			</li>
 		</ul>
-	<hr>
 	</div>
 
 	<div class="col-md-6">
