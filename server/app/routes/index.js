@@ -33,7 +33,7 @@ router.post('/submit', function(req, res, next){
 			} else if (!stdout && err) {
 				console.log('error: ');
 				console.log(err);
-
+				if (stderr) console.log(stderr);
 				var realError = {
 					message: 'Either your test code or start code has some sort of syntax error. Look at the error stack below to find out where.',
 					errStack: err.stack

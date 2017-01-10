@@ -1,6 +1,6 @@
-<i class="fa fa-bars fa-2x toggle_menu opacity_one"></i>
-<div class="sidebar_menu">
-    <i class="fa fa-times fa-lg"></i>
+<i class="fa fa-bars fa-2x toggle_menu opacity_one" ng-click="showNav()" ng-mouseover="showNav()"></i>
+<div ng-class="navClass" ng-mouseleave="hideNav()">
+    <i class="fa fa-times fa-lg" ng-click="hideNav()"></i>
     <div class="logo-image">
         <fullstack-logo></fullstack-logo>
     </div>

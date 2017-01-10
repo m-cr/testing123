@@ -7,8 +7,6 @@ app.controller('ChallengeDetailsCtrl', function($scope, Challenge, Session){
 		else $scope.solution = false;
 	};
 
-	var $ctrl = this;
-
 	$scope.getChallenge = function(id){
 		return Challenge.findOne(id);
 	};

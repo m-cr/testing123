@@ -13,55 +13,55 @@ app.factory('TutorialService', function(){
 		};
 
 	TutorialService.bodyText = [{
-	  	   part: 0,
-		   body: [ 
-		     `Welcome to Testing 123. This site has been designed to help you get started writing tests for code.`,
-		     `The goal is to become a test-writing wizard, eventually writing tests BEFORE you code like a true "test-driven developer."`
-		]},{
+			part: 0,
+			body: [
+				`Welcome to Testing 123. This site has been designed to help you get started writing tests for code.`,
+				`The goal is to become a test-writing wizard, eventually writing tests BEFORE you code like a true "test-driven developer."`
+			]}, {
 			part: 1,
 			body: [
-			  `The language we are going to be using is Javascript and our testing framework is called Mocha.`,
-			  `Mocha is certainly not the only test framework you can use, but it's a fairly simple one to get started with.`,'-----',
-			  `We're also going to pull in an "assertion library" called Chai that will allow our tests to read a bit more like spoken English.`
-		]},{
+				`The language we are going to be using is Javascript and our testing framework is called Mocha.`,
+				`Mocha is certainly not the only test framework you can use, but it's a fairly simple one to get started with.`, '-----',
+				`We're also going to pull in an "assertion library" called Chai that will allow our tests to read a bit more like spoken English.`
+		]}, {
 			part: 2,
 			body: [
-			  `Now that we know a bit more about our environment and why we're here, let's get started.`
-		]},{
+				`Now that we know a bit more about our environment and why we're here, let's get started.`
+		]}, {
 			part: 3,
 			body: [
-			  `First up is the "describe block." It looks like this:`],
-			code: 
-			  `\tdescribe("something to describe", function(){\n`
-			  +`\t\t//more test code will go here\n`
-			  +`\t});`,
+				`First up is the "describe block." It looks like this:`],
+			code:
+				`\tdescribe("something to describe", function(){\n`
+				+ `\t\t//more test code will go here\n`
+				+ `\t});`,
 			afterCode: [
-			  "Describe is a function that takes two parameters, a string that declares what you’re describing,"
-			  +" and then a function that will contain more test code.", "Think of it as a way to group and organize your tests."
+				'Describe is a function that takes two parameters, a string that declares what you’re describing,'
+				+ ' and then a function that will contain more test code.", "Think of it as a way to group and organize your tests.'
 		]}, {
 			part: 4,
 			body: [
-			  `For instance, if you were going to test a function named “sweetFunction” you might begin your test code for that function with:`
+				`For instance, if you were going to test a function named “sweetFunction” you might begin your test code for that function with:`
 			],
-			code: `describe("sweetFunction", function(){});`,
+			code: `describe('sweetFunction', function(){});`,
 			afterCode: [
-			  `Pretty simple, but very useful when you’re looking at your code results and want to keep track of what’s being tested.\n`,
-			  `Now it's time for your first test code challenge! Click continue to begin.`
+				`Pretty simple, but very useful when you’re looking at your code results and want to keep track of what’s being tested.\n`,
+				`Now it's time for your first test code challenge! Click continue to begin.`
 		]}, {
 			part: 5,
 			challengeId: 2
-		},{
+		}, {
 			part: 6,
-			body: [`Great! But what’s going on inside that describe block?`,`Let’s take a look at line 2:`],
+			body: [`Great! But what’s going on inside that describe block?`, `Let’s take a look at line 2:`],
 			code: `it('should return bar', function(){`,
 			afterCode: [
 			  `This looks a lot like our describe block, doesn’t it?`,
 			  `You’ve just met “it”, the basic test case function in Mocha.`,
 			  `Like describe, it takes a string that declares what you’re testing and a function that will contain more test code. `,
 			  `The plain English style of Mocha & Chai allow you to glance at test code and easily understand what it’s doing.`,
-			  `In this case we read the ‘describe’ and ‘it’ blocks’ first parameters together to see what we’re testing: “foo should return bar”.` 
+			  `In this case we read the ‘describe’ and ‘it’ blocks’ first parameters together to see what we’re testing: “foo should return bar”.`
 			]
-		},{
+		}, {
 			part: 7,
 			body: [`Now for line 3:`],
 			code: `expect(foo()).to.equal('bar');`,

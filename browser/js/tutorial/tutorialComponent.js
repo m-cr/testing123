@@ -15,9 +15,19 @@ app.controller('TutorialCtrl', ['Challenge', 'TutorialService', function(Challen
 
 	this.bodyText = TutorialService.bodyText;
 
+	var getChallenge = function(){
+		Challenge.findOne(challengeIndex)
+		.then(function(challenge){
+			that.challenge = challenge;
+		})
+		.catch(function(err){
+			console.log(err);
+		});
+	};
+
 	this.advance = function(){
 		challengeIndex = this.bodyText[this.index + 1].challengeId;
-		if(challengeIndex){
+		if (challengeIndex){
 			getChallenge();
 		}
 		return that.index++;
@@ -27,14 +37,4 @@ app.controller('TutorialCtrl', ['Challenge', 'TutorialService', function(Challen
 		return that.index--;
 	};
 
-	var getChallenge = function(){
-		Challenge.findOne(challengeIndex)
-		  .then(function(challenge){
-		  	that.challenge = challenge;
-		  })
-		  .catch(function(err){
-		  	console.log(err);
-		  });
-	};
 }]);
-

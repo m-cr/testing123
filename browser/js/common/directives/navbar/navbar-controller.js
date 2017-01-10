@@ -20,6 +20,17 @@ app.controller('NavbarCtrl', function($rootScope, $state, $scope, AuthService, A
         });
     };
 
+    $scope.navClass = 'sidebar_menu hide_menu';
+
+    $scope.showNav = function(){
+        $scope.navClass = 'sidebar_menu';
+    };
+
+    $scope.hideNav = function(){
+        console.log('hide');
+        $scope.navClass = 'sidebar_menu hide_menu';
+    };
+
     var setUser = function() {
         AuthService.getLoggedInUser().then(function(user) {
             $scope.user = user;

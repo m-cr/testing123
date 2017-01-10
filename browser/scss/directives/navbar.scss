@@ -78,10 +78,13 @@ navbar {
     opacity: 0;
 }
 
+.hide_menu {
+    margin-left: -230px;
+}
+
 .sidebar_menu {
     position: fixed;
     width: 230px;
-    margin-left: -230px;
     height: 100vh;
     max-height: 100vh;
     background-color: rgba(200, 200, 200, 0.9);
@@ -159,10 +162,6 @@ navbar {
     &:hover {
       color: #f31214;
     }
-}
-
-.hide_menu {
-    margin-left: -230px;
 }
 
 .opacity_one {
